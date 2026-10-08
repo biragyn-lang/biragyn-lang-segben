@@ -269,12 +269,17 @@ def indice():
 <span style="margin-top: auto; padding-top: 12px; font-weight: 700; color: #f2c200;">Ver detalhes →</span>
 </div>
 </a>'''
+    naoachou = f'''<div class="card" style="background: #17752f; color: #ffffff; border-radius: 12px; padding: 28px 26px; display: flex; flex-direction: column; gap: 14px; justify-content: center;">
+<span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 34px; line-height: 1.02;">Não achou o seu curso?</span>
+<span style="font-size: 16px; line-height: 1.55; color: #e1efe3;">Esses são os principais. A Segbem realiza outros treinamentos de NR conforme a necessidade da sua empresa. Fala com a gente que a gente monta a turma.</span>
+<a class="btn-main" href="{wa('Olá, Segbem! Vim pelo site e procuro um curso que não achei na lista.')}" style="align-self: flex-start; background: #f2c200; color: #14201a; text-decoration: none; font-weight: 700; font-size: 16px; padding: 14px 20px; border-radius: 6px; display: inline-flex; align-items: center; gap: 10px;">{WA_ICON}Consultar outro curso</a>
+</div>'''
     outros = '\n'.join(f'<a href="{wa("Olá, Segbem! Vim pelo site e quero orçamento do curso " + o + ".")}" style="background: var(--surface); border: 1px solid var(--line); padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none;">{esc(o)}</a>' for o in OUTROS)
     body = f'''<section style="background: #0d3b24; color: #ffffff;">
 <div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 72px; display: flex; flex-direction: column; gap: 20px;">
-<div style="display: inline-flex; align-self: flex-start; background: rgba(242,194,0,0.14); color: #f2c200; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 14px; border-radius: 4px;">Cursos e treinamentos</div>
+<div style="display: inline-flex; align-self: flex-start; background: rgba(242,194,0,0.14); color: #f2c200; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 14px; border-radius: 4px;">Principais cursos</div>
 <h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 76px); line-height: 0.98; text-transform: uppercase; max-width: 900px;">Treinamentos de NR em Goiânia e todo Goiás.</h1>
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #d5e4d8; max-width: 640px;">Carga horária, reciclagem e conteúdo de cada curso. Turmas in company, com a prática feita nos equipamentos da sua empresa, ou turmas presenciais.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #d5e4d8; max-width: 640px;">Os principais cursos com carga horária, reciclagem e conteúdo. Não achou o seu? A gente realiza outros, é só chamar. Turmas in company, com a prática feita nos equipamentos da sua empresa, ou turmas presenciais.</p>
 </div>
 </section>
 <div class="hz" style="height: 12px;"></div>
@@ -284,9 +289,10 @@ def indice():
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
 {chr(10).join(cards)}
 {brig}
+{naoachou}
 </div>
 <div class="extra" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-<span style="font-weight: 700; font-size: 15px; color: var(--muted); margin-right: 4px;">Também fazemos</span>
+<span style="font-weight: 700; font-size: 15px; color: var(--muted); margin-right: 4px;">Outros cursos que realizamos</span>
 {outros}
 </div>
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 820px;">As cargas horárias informadas seguem o mínimo previsto em cada norma. A turma pode ter mais horas conforme a necessidade da empresa.</p>
