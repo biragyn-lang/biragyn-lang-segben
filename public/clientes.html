@@ -52,6 +52,7 @@ img{max-width:100%}
 <script>(function(){var t;try{t=localStorage.getItem('segben-theme')}catch(e){}if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';var d=document.documentElement;d.setAttribute('data-theme',t);d.classList.add('js')})()</script>
 <link rel="stylesheet" href="assets/theme.css">
 <link rel="stylesheet" href="assets/anim.css">
+<link rel="stylesheet" href="assets/chat.css">
 </head>
 <body>
 <div style="font-family: 'Barlow', system-ui, sans-serif; color: var(--ink); background: var(--surface); min-height: 100%;">
@@ -177,5 +178,6 @@ b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttr
 n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false')}});})();
 </script>
 <script src="assets/anim.js" defer></script>
+<script src="assets/chat.js" defer></script>
 </body>
 </html>
