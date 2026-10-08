@@ -1,3 +1,4 @@
+(Nome correto da empresa: Segbem)
 SEGBEN - site estático (Cloudflare Pages)
 
 Pasta "public" = o que vai pro ar (index.html, clientes.html, img/, _headers). O wrangler.jsonc aponta pra ela, assim .git e README não são publicados.
