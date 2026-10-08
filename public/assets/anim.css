@@ -85,3 +85,11 @@ footer a:hover{color:#ffffff !important}
 .rating svg{animation:starPop .5s cubic-bezier(.2,.8,.2,1) both}
 .rating svg:nth-child(2){animation-delay:.08s}.rating svg:nth-child(3){animation-delay:.16s}.rating svg:nth-child(4){animation-delay:.24s}.rating svg:nth-child(5){animation-delay:.32s}
 @keyframes starPop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+
+/* Avaliações: grade no PC, carrossel de arrastar no celular */
+.reviews{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;align-items:stretch}
+@media (max-width:700px){
+  .reviews{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;gap:14px;margin:0 -24px;padding:4px 24px 12px;scrollbar-width:none}
+  .reviews::-webkit-scrollbar{display:none}
+  .reviews .review{flex:0 0 84%;scroll-snap-align:start}
+}
