@@ -113,6 +113,33 @@
   var hv = document.querySelector('.hero-video');
   if (hv && reduce) { hv.removeAttribute('autoplay'); try { hv.pause(); } catch (e) {} }
 
+
+  // Botões principais: efeito de hover com bolinha que preenche e texto com seta
+  var ARROW = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  document.querySelectorAll('a.btn-main:not(.wa), .sb-send-wa').forEach(function (b) {
+    if (b.classList.contains('ihb')) return;
+    var label = b.textContent.replace(/\s+/g, ' ').replace(/\s*→\s*$/, '').trim();
+    if (!label) return;
+    var bg = getComputedStyle(b).backgroundColor;
+    var fg = getComputedStyle(b).color;
+    var yellow = /242,\s*194,\s*0/.test(bg);
+    b.style.setProperty('--ihb-bg', bg);
+    b.style.setProperty('--ihb-fg', fg);
+    b.style.setProperty('--ihb-dot', yellow ? '#0d3b24' : '#f2c200');
+    b.style.setProperty('--ihb-hover-fg', yellow ? '#ffffff' : '#14201a');
+    var inner = document.createElement('span');
+    inner.className = 'ihb-label';
+    while (b.firstChild) inner.appendChild(b.firstChild);
+    var hover = document.createElement('span');
+    hover.className = 'ihb-hover'; hover.setAttribute('aria-hidden', 'true');
+    hover.innerHTML = '<span></span>' + ARROW;
+    hover.firstChild.textContent = label;
+    var dot = document.createElement('span');
+    dot.className = 'ihb-dot'; dot.setAttribute('aria-hidden', 'true');
+    b.appendChild(dot); b.appendChild(inner); b.appendChild(hover);
+    b.classList.add('ihb');
+  });
+
   // Alterna claro/escuro e lembra a escolha
   var tb = document.querySelector('.theme-btn');
   if (tb) {

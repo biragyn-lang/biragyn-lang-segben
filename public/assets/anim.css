@@ -122,3 +122,14 @@ section:not(#brigada) h2:not(.card h2){text-transform:none !important;letter-spa
   .tcards::-webkit-scrollbar{display:none}
   .tcards > .card{flex:0 0 78%;scroll-snap-align:start}
 }
+
+/* Botão com hover interativo (adaptação do InteractiveHoverButton do 21st.dev, sem React) */
+.ihb{position:relative;overflow:hidden;isolation:isolate}
+.btn-main.ihb:hover{background:var(--ihb-bg) !important;color:var(--ihb-fg) !important}
+.ihb-label{display:inline-flex;align-items:center;gap:inherit;position:relative;z-index:1;transition:transform .3s ease,opacity .3s ease}
+.ihb-hover{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;gap:10px;color:var(--ihb-hover-fg);opacity:0;transform:translateX(48px);transition:transform .3s ease,opacity .3s ease;white-space:nowrap;padding:0 16px}
+.ihb-dot{position:absolute;left:10px;top:calc(50% - 4px);width:8px;height:8px;border-radius:8px;background:var(--ihb-dot);z-index:0;transition:all .3s ease;opacity:.9}
+.ihb:hover .ihb-label,.ihb:focus-visible .ihb-label{transform:translateX(48px);opacity:0}
+.ihb:hover .ihb-hover,.ihb:focus-visible .ihb-hover{transform:translateX(0);opacity:1}
+.ihb:hover .ihb-dot,.ihb:focus-visible .ihb-dot{left:0;top:0;width:100%;height:100%;transform:scale(1.8);border-radius:0;opacity:1}
+@media (hover:none){.ihb-dot{display:none}}
