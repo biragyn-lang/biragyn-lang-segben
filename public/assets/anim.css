@@ -78,3 +78,10 @@ html,body{overflow-x:clip}
 .contact-links a{transition:background .2s ease,border-color .2s ease}
 .contact-links a:hover{background:rgba(255,255,255,.12);border-color:#ffffff !important}
 footer a:hover{color:#ffffff !important}
+
+/* Selo de avaliação do Google */
+.rating{transition:background .2s ease,transform .2s ease}
+.rating:hover{background:rgba(255,255,255,.16) !important;transform:translateY(-2px);color:#ffffff}
+.rating svg{animation:starPop .5s cubic-bezier(.2,.8,.2,1) both}
+.rating svg:nth-child(2){animation-delay:.08s}.rating svg:nth-child(3){animation-delay:.16s}.rating svg:nth-child(4){animation-delay:.24s}.rating svg:nth-child(5){animation-delay:.32s}
+@keyframes starPop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
