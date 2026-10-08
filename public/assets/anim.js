@@ -72,6 +72,29 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
+  // Números contando quando aparecem na tela
+  var counters = document.querySelectorAll('[data-count]');
+  if (counters.length && !reduce && 'IntersectionObserver' in window) {
+    var fmt = function (n) { return '+' + n.toLocaleString('pt-BR'); };
+    var co = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        co.unobserve(e.target);
+        var el = e.target, end = +el.getAttribute('data-count'), t0 = null, dur = 1600;
+        var step = function (ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / dur), eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = fmt(Math.round(end * eased));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        el.textContent = fmt(0);
+        requestAnimationFrame(step);
+      });
+    }, { threshold: 0.4 });
+    counters.forEach(function (c) { co.observe(c); });
+  }
+
   // Alterna claro/escuro e lembra a escolha
   var tb = document.querySelector('.theme-btn');
   if (tb) {
