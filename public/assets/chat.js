@@ -83,6 +83,31 @@
       };
     });
   }
+  // Mostra opções e ao mesmo tempo libera o campo pra digitar; vale o que vier primeiro
+  function chooseOrType(options, placeholder) {
+    return new Promise(function (res) {
+      var done = false;
+      var box = document.createElement('div');
+      box.className = 'sb-opts';
+      function finishWith(v) {
+        if (done) return; done = true;
+        box.remove();
+        input.value = ''; input.disabled = true; sendBtn.disabled = true; input.placeholder = 'Escolha uma opção acima';
+        waitingText = null;
+        add(v, 'me'); res(v);
+      }
+      options.forEach(function (o) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'sb-opt'; b.textContent = o;
+        b.addEventListener('click', function () { finishWith(o); });
+        box.appendChild(b);
+      });
+      body.appendChild(box); scroll();
+      input.disabled = false; sendBtn.disabled = false;
+      input.placeholder = placeholder; input.value = '';
+      waitingText = function (v) { if (v) finishWith(v); else input.focus(); };
+    });
+  }
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (waitingText) waitingText(input.value.trim());
@@ -95,9 +120,14 @@
       .then(function (s) {
         data.servico = s;
         if (s === 'Treinamento de NR') {
-          return say('Boa! Qual treinamento?').then(function () {
-            return choose(['NR-35 Trabalho em altura', 'NR-11 Empilhadeira', 'NR-33 Espaço confinado', 'NR-10 Eletricidade', 'PEMT Plataforma', 'Primeiros socorros', 'Outro ou mais de um']);
-          }).then(function (d) { data.detalhe = d; });
+          return say('Boa! Qual curso você procura? Toca numa opção ou escreve o nome do curso aqui embaixo, pode ser mais de um.').then(function () {
+            return chooseOrType(['NR-35 Trabalho em altura', 'NR-11 Empilhadeira', 'NR-33 Espaço confinado', 'NR-10 Eletricidade', 'PEMT Plataforma', 'Primeiros socorros', 'Outro curso'], 'Digite o curso (ex.: NR-12, NR-20)');
+          }).then(function (d) {
+            if (d !== 'Outro curso') { data.detalhe = d; return; }
+            return say('Qual curso? Pode escrever do jeito que souber.').then(function () {
+              return ask('Ex.: NR-12 Máquinas, NR-20 Inflamáveis');
+            }).then(function (t) { data.detalhe = t; });
+          });
         }
         if (s === 'Brigada de emergência') {
           return say('Qual nível de brigada?').then(function () {
