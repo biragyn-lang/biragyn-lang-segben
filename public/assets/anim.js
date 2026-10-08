@@ -72,4 +72,29 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+  // Alterna claro/escuro e lembra a escolha
+  var tb = document.querySelector('.theme-btn');
+  if (tb) {
+    var root = document.documentElement;
+    var sync = function () {
+      var dark = root.getAttribute('data-theme') === 'dark';
+      tb.setAttribute('aria-pressed', dark ? 'true' : 'false');
+      tb.setAttribute('aria-label', dark ? 'Mudar para modo claro' : 'Mudar para modo escuro');
+    };
+    sync();
+    tb.addEventListener('click', function () {
+      var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('segben-theme', next); } catch (e) {}
+      sync();
+    });
+    // Segue o sistema enquanto a pessoa não escolher
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    var onSys = function (e) {
+      var saved = null;
+      try { saved = localStorage.getItem('segben-theme'); } catch (err) {}
+      if (!saved) { root.setAttribute('data-theme', e.matches ? 'dark' : 'light'); sync(); }
+    };
+    if (mq.addEventListener) mq.addEventListener('change', onSys);
+  }
 })();
