@@ -20,3 +20,12 @@ Opção 3, deploy automático pelo GitHub
 Pendências no HTML: [e-mail de contato], [@instagram], CNPJ, endereço, [+X] na página de clientes.
 
 Logos dos clientes: PNG com fundo transparente em public/img/clientes/ com os nomes igel.png, camil.png, geo.png, real.png, caseratto.png, dolcci.png, zello.png. Sem o arquivo, o site mostra o nome da empresa.
+
+## Páginas de curso
+Geradas por `python3 tools/cursos.py public` a partir da lista CURSOS no próprio script
+(o cabeçalho e o rodapé são copiados da home). Edite lá e rode de novo.
+Também gera cursos.html, 404.html, sitemap.xml e robots.txt.
+A imagem de compartilhamento sai de `python3 tools/og.py`.
+
+## Rollback
+A versão anterior ao pacote de melhorias está na branch `backup-v1-antes-melhorias`.

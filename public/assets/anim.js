@@ -52,7 +52,8 @@
   mark('.brig-row', 'rv-right', 120);
   mark('.brig-media', 'rv-left');
   mark('#treinamentos .chips > span', null, 50);
-  mark('.extra > span', null, 50);
+  mark('.extra > span, .extra > a', null, 50);
+  mark('.faq-item', null, 60);
 
   if (reduce || !('IntersectionObserver' in window)) {
     document.querySelectorAll('.rv').forEach(function (el) { el.classList.add('in'); });
@@ -63,6 +64,18 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+    // Rede de segurança: rolagem muito rápida ou salto por âncora pode pular o observer.
+    // Qualquer coisa que já ficou acima da parte de baixo da tela aparece.
+    var ticking = false;
+    var sweep = function () {
+      ticking = false;
+      var lim = window.innerHeight;
+      document.querySelectorAll('.rv:not(.in)').forEach(function (el) {
+        if (el.getBoundingClientRect().top < lim) { el.classList.add('in'); io.unobserve(el); }
+      });
+    };
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(sweep); } }, { passive: true });
+    window.addEventListener('hashchange', sweep);
   }
 
   // Sombra no cabeçalho
@@ -94,6 +107,11 @@
     }, { threshold: 0.4 });
     counters.forEach(function (c) { co.observe(c); });
   }
+
+
+  // Vídeo do topo: respeita quem pediu menos movimento
+  var hv = document.querySelector('.hero-video');
+  if (hv && reduce) { hv.removeAttribute('autoplay'); try { hv.pause(); } catch (e) {} }
 
   // Alterna claro/escuro e lembra a escolha
   var tb = document.querySelector('.theme-btn');

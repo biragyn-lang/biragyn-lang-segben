@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://segbemsst.com.br/sitemap.xml

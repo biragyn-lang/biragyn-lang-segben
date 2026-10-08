@@ -93,3 +93,25 @@ footer a:hover{color:#ffffff !important}
   .reviews::-webkit-scrollbar{display:none}
   .reviews .review{flex:0 0 84%;scroll-snap-align:start}
 }
+
+/* Pacote de melhorias out/2026 */
+/* Títulos: maiúsculo só no topo e na brigada */
+section:not(#brigada) h2:not(.card h2){text-transform:none !important;letter-spacing:-0.005em}
+/* Vídeo do topo entra igual à foto */
+.hero-media video{animation:heroIn 1.4s cubic-bezier(.2,.7,.2,1) both}
+/* Plano mensal */
+.plano::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:28px solid rgba(242,194,0,.08);pointer-events:none}
+/* FAQ */
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover{color:var(--brand-ink)}
+.faq-ic{position:relative;width:22px;height:22px;flex:none}
+.faq-ic::before,.faq-ic::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2.4px;background:var(--brand-ink);border-radius:2px;transform:translate(-50%,-50%);transition:transform .25s ease}
+.faq-ic::after{transform:translate(-50%,-50%) rotate(90deg)}
+.faq-item[open] .faq-ic::after{transform:translate(-50%,-50%) rotate(0deg)}
+.faq-item[open] summary{color:var(--brand-ink)}
+.faq-item p{animation:msgIn .3s ease}
+/* Home mais curta no celular */
+@media (max-width:700px){
+  .gal img:nth-child(n+5){display:none}
+  .plano{padding:32px 24px !important}
+}
