@@ -63,3 +63,13 @@ html,body{overflow-x:clip}
   .js .step{border-top-color:#17752f !important}
   .js .step::before{display:none}
 }
+
+/* Logos dos clientes no letreiro (cai pro nome se o arquivo não existir) */
+.marquee-track{align-items:center}
+.cl{display:inline-flex;align-items:center;height:56px}
+.cl img{height:44px;width:auto;max-width:180px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .3s ease,opacity .3s ease}
+.cl:hover img{filter:none;opacity:1}
+.cl b{display:none;font-weight:700}
+.cl.nologo b{display:inline}
+:root[data-theme="dark"] .cl img{filter:grayscale(1) brightness(0) invert(1);opacity:.8}
+:root[data-theme="dark"] .cl:hover img{filter:grayscale(1) brightness(0) invert(1);opacity:1}

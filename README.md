@@ -17,3 +17,5 @@ Opção 3, deploy automático pelo GitHub
   Build command: (vazio)   Deploy command: npx wrangler deploy (padrão do Workers Builds)
 
 Pendências no HTML: [e-mail de contato], [@instagram], CNPJ, endereço, [+X] na página de clientes.
+
+Logos dos clientes: PNG com fundo transparente em public/img/clientes/ com os nomes igel.png, camil.png, geo.png, real.png, caserato.png, dolcci.png, zello.png. Sem o arquivo, o site mostra o nome da empresa.
