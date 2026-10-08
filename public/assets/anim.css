@@ -133,3 +133,23 @@ section:not(#brigada) h2:not(.card h2){text-transform:none !important;letter-spa
 .ihb:hover .ihb-hover,.ihb:focus-visible .ihb-hover{transform:translateX(0);opacity:1}
 .ihb:hover .ihb-dot,.ihb:focus-visible .ihb-dot{left:0;top:0;width:100%;height:100%;transform:scale(1.8);border-radius:0;opacity:1}
 @media (hover:none){.ihb-dot{display:none}}
+
+/* Depoimentos em colunas que sobem (adaptação do testimonials-6 do 21st.dev, sem React) */
+.tms{display:flex;justify-content:center;gap:24px;max-height:640px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}
+.tms-col{flex:1 1 0;min-width:0;max-width:390px}
+.tms-track{display:flex;flex-direction:column;gap:24px;padding-bottom:24px;animation:tmsUp var(--dur) linear infinite}
+.tms-col:hover .tms-track,.tms-col:focus-within .tms-track{animation-play-state:paused}
+@keyframes tmsUp{to{transform:translateY(-50%)}}
+.tms-card{box-shadow:0 14px 34px rgba(13,59,36,.10)}
+:root[data-theme="dark"] .tms-card{box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.tms-m{display:none}
+@media (max-width:1000px){
+  .tms-a,.tms-b,.tms-c{display:none}
+  .tms-m{display:block;max-width:440px}
+  .tms{max-height:560px}
+}
+@media (prefers-reduced-motion:reduce){
+  .tms{max-height:none;-webkit-mask-image:none;mask-image:none}
+  .tms-card[aria-hidden="true"]{display:none}
+}
