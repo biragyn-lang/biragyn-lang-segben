@@ -49,6 +49,8 @@ img{max-width:100%}
  section img[style*="height: 480px"],section img[style*="height: 520px"]{height:300px !important}
 }
 </style>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/anim.css">
 </head>
 <body>
 <div style="font-family: 'Barlow', system-ui, sans-serif; color: #14201a; background: #ffffff; min-height: 100%;">
@@ -73,14 +75,14 @@ img{max-width:100%}
 Falar com um especialista</a>
 <a class="btn-ghost" href="#treinamentos" style="border: 2px solid rgba(255,255,255,0.5); color: #ffffff; text-decoration: none; font-weight: 600; font-size: 17px; padding: 14px 24px; border-radius: 6px;">Ver treinamentos</a>
 </div>
-<div style="display: flex; align-items: center; gap: 12px; padding-top: 8px; color: #d5e4d8; font-size: 15px; line-height: 1.45;">
+<div class="seal" style="display: flex; align-items: center; gap: 12px; padding-top: 8px; color: #d5e4d8; font-size: 15px; line-height: 1.45;">
 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f2c200" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex: none;"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
 <span>Empresa credenciada junto ao Corpo de Bombeiros do Estado de Goiás para formação de brigada.</span>
 </div>
 </div>
-<div style="flex: 1 1 420px; min-width: 0; position: relative;">
+<div class="hero-media" style="flex: 1 1 420px; min-width: 0; position: relative;">
 <img fetchpriority="high" src="img/hero.webp" alt="Turma em treinamento prático de combate a incêndio com fogo real" style="width: 100%; height: 480px; object-fit: cover; border-radius: 10px; display: block;">
-<div style="position: absolute; left: 16px; bottom: 16px; background: #ffffff; color: #14201a; padding: 12px 16px; border-radius: 6px; font-weight: 600; font-size: 14px; max-width: 280px;">Combate a incêndio com fogo real, não só slide.</div>
+<div class="hero-chip" style="position: absolute; left: 16px; bottom: 16px; background: #ffffff; color: #14201a; padding: 12px 16px; border-radius: 6px; font-weight: 600; font-size: 14px; max-width: 280px;">Combate a incêndio com fogo real, não só slide.</div>
 </div>
 </div>
 </section>
@@ -90,7 +92,7 @@ Falar com um especialista</a>
 <section style="background: #f4f6f1; border-bottom: 1px solid #e3e8e0;">
 <div style="max-width: 1240px; margin: 0 auto; padding: 36px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px;">
 <div style="font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #4c5a50;">Empresas que já treinaram com a gente</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; color: #2d3a31; text-transform: uppercase; letter-spacing: 0.02em;">
+<div class="marquee" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; color: #2d3a31; text-transform: uppercase; letter-spacing: 0.02em;">
 <span>Igel Embalagens</span><span>Camil</span><span>GEO</span><span>Real Distribuidora</span><span>Caserato</span><span>Dolcci Empório</span><span>Zello</span>
 </div>
 <a href="clientes.html" style="font-weight: 700; font-size: 15px; padding: 10px 0;">Ver todos os clientes →</a>
@@ -140,7 +142,7 @@ Falar com um especialista</a>
 <div style="font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: #17752f; margin-bottom: 12px;">Treinamentos de NRs</div>
 <h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1; text-transform: uppercase;">Teoria em sala, prática com a máquina de verdade.</h2>
 </div>
-<div style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 8px;">
+<div class="chips" style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 8px;">
 <span style="background: #ffffff; border: 1px solid #d6ddd2; padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14px;">Turmas in company</span>
 <span style="background: #ffffff; border: 1px solid #d6ddd2; padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14px;">Aulas presenciais</span>
 <span style="background: #ffffff; border: 1px solid #d6ddd2; padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14px;">Certificado de conclusão</span>
@@ -172,7 +174,7 @@ Falar com um especialista</a>
 <div style="padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 6px;"><div style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 20px; color: #17752f;">Socorro</div><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Primeiros socorros</h3><p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4c5a50;">RCP em manequim, imobilização e transporte de vítima.</p></div>
 </div>
 </div>
-<div style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
+<div class="extra" style="display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
 <span style="font-weight: 700; font-size: 15px; color: #4c5a50; margin-right: 4px;">Também oferecemos</span>
 <span style="background: #ffffff; border: 1px solid #d6ddd2; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 15px;">NR-10 Eletricidade</span>
 <span style="background: #ffffff; border: 1px solid #d6ddd2; padding: 10px 16px; border-radius: 6px; font-weight: 600; font-size: 15px;">NR-36 Frigoríficos</span>
@@ -184,7 +186,7 @@ Falar com um especialista</a>
 
 <section id="brigada" style="background: #14201a; color: #ffffff;">
 <div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 56px;">
-<div style="flex: 1 1 420px; min-width: 0;">
+<div class="brig-media" style="flex: 1 1 420px; min-width: 0;">
 <img loading="lazy" src="img/brigada.webp" alt="Brigadistas manuseando mangueira de incêndio em treinamento" style="width: 100%; height: 520px; object-fit: cover; border-radius: 10px; display: block;">
 </div>
 <div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
@@ -192,9 +194,9 @@ Falar com um especialista</a>
 <h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1; text-transform: uppercase;">Sua equipe pronta antes da emergência acontecer.</h2>
 <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #c9d3cb;">Formação credenciada junto ao Corpo de Bombeiros de Goiás, com extintor, mangueira e fogo real no pátio da sua empresa.</p>
 <div style="display: flex; flex-direction: column; gap: 12px;">
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #34443a; border-radius: 8px; padding: 18px 22px;"><span style="font-weight: 700; font-size: 19px;">Brigada básica</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: #f2c200; white-space: nowrap;">4 horas</span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #34443a; border-radius: 8px; padding: 18px 22px;"><span style="font-weight: 700; font-size: 19px;">Brigada intermediária</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: #f2c200; white-space: nowrap;">8 horas</span></div>
-<div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #34443a; border-radius: 8px; padding: 18px 22px;"><span style="font-weight: 700; font-size: 19px;">Brigada avançada</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: #f2c200; white-space: nowrap;">24 horas</span></div>
+<div class="brig-row" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #34443a; border-radius: 8px; padding: 18px 22px;"><span style="font-weight: 700; font-size: 19px;">Brigada básica</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: #f2c200; white-space: nowrap;">4 horas</span></div>
+<div class="brig-row" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #34443a; border-radius: 8px; padding: 18px 22px;"><span style="font-weight: 700; font-size: 19px;">Brigada intermediária</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: #f2c200; white-space: nowrap;">8 horas</span></div>
+<div class="brig-row" style="display: flex; align-items: center; justify-content: space-between; gap: 16px; border: 1px solid #34443a; border-radius: 8px; padding: 18px 22px;"><span style="font-weight: 700; font-size: 19px;">Brigada avançada</span><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 28px; color: #f2c200; white-space: nowrap;">24 horas</span></div>
 </div>
 <a class="btn-main" href="https://wa.me/5562992125850" style="align-self: flex-start; background: #f2c200; color: #14201a; text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 6px;">Agendar turma de brigada</a>
 </div>
@@ -208,10 +210,10 @@ Falar com um especialista</a>
 <h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1; text-transform: uppercase;">Do diagnóstico ao certificado.</h2>
 </div>
 <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px;">
-<div style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">01</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Visita técnica</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">A gente conhece a operação, as máquinas e os riscos de perto.</p></div>
-<div style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">02</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Plano sob medida</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">Quais NRs se aplicam, quem precisa de treinamento e o que falta na documentação.</p></div>
-<div style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">03</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Execução na empresa</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">Treinamentos in company e avaliações em campo, no horário da sua equipe.</p></div>
-<div style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">04</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Documentação entregue</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">Certificados, listas de presença, programas e eventos do eSocial organizados.</p></div>
+<div class="step" style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">01</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Visita técnica</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">A gente conhece a operação, as máquinas e os riscos de perto.</p></div>
+<div class="step" style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">02</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Plano sob medida</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">Quais NRs se aplicam, quem precisa de treinamento e o que falta na documentação.</p></div>
+<div class="step" style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">03</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Execução na empresa</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">Treinamentos in company e avaliações em campo, no horário da sua equipe.</p></div>
+<div class="step" style="border-top: 4px solid #17752f; padding-top: 20px; display: flex; flex-direction: column; gap: 8px;"><span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 44px; color: #c8d4c6; line-height: 1;">04</span><h3 style="margin: 0; font-size: 20px; font-weight: 700;">Documentação entregue</h3><p style="margin: 0; font-size: 16px; line-height: 1.55; color: #4c5a50;">Certificados, listas de presença, programas e eventos do eSocial organizados.</p></div>
 </div>
 </div>
 </section>
@@ -225,7 +227,7 @@ Falar com um especialista</a>
 </div>
 <a href="clientes.html" style="font-weight: 700; font-size: 16px; padding: 10px 0;">Ver por cliente →</a>
 </div>
-<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px;">
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px;" class="gal">
 <img loading="lazy" src="img/g4.webp" alt="Treinamento de combate a incêndio com extintor e fumaça" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; display: block;">
 <img loading="lazy" src="img/g1.webp" alt="Turma posando em corredor de centro de distribuição" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; display: block;">
 <img loading="lazy" src="img/g5.webp" alt="Turma de trabalho em altura equipada com cintos" style="width: 100%; height: 300px; object-fit: cover; border-radius: 8px; display: block;">
@@ -268,5 +270,6 @@ Falar com um especialista</a>
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')});
 n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false')}});})();
 </script>
+<script src="assets/anim.js" defer></script>
 </body>
 </html>

@@ -48,6 +48,8 @@ img{max-width:100%}
  section img[style*="height: 480px"],section img[style*="height: 520px"]{height:300px !important}
 }
 </style>
+<script>document.documentElement.classList.add('js')</script>
+<link rel="stylesheet" href="assets/anim.css">
 </head>
 <body>
 <div style="font-family: 'Barlow', system-ui, sans-serif; color: #14201a; background: #ffffff; min-height: 100%;">
@@ -171,5 +173,6 @@ img{max-width:100%}
 b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Fechar menu':'Abrir menu')});
 n.addEventListener('click',function(e){if(e.target.closest('a')){n.classList.remove('open');b.setAttribute('aria-expanded','false')}});})();
 </script>
+<script src="assets/anim.js" defer></script>
 </body>
 </html>
