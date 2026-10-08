@@ -142,6 +142,35 @@ CURSOS = [
 ]
 OUTROS = ['NR-01 Gerenciamento de riscos', 'NR-06 EPI', 'NR-17 Ergonomia', 'NR-18 Construção civil', 'NR-23 Combate a incêndio', 'NR-24 Higiene e conforto', 'NR-31 Trabalho rural', 'NR-32 Serviços de saúde', 'NR-36 Frigoríficos', 'NR-16 Anexo V, motociclistas']
 
+
+FAQ = [
+ ('O certificado vale na fiscalização?', 'Vale. O certificado sai com o que a norma pede: nome do trabalhador, conteúdo, carga horária, data, local, instrutor e assinatura do responsável técnico. Junto vão a lista de presença e o registro da parte prática.'),
+ ('Qual a diferença entre capacitado e autorizado?', 'Capacitado é quem fez o treinamento. Autorizado é quem, além de capacitado e apto no exame médico, recebeu autorização formal da empresa pra fazer aquela atividade. Em NRs como a 10, a 33 e a 35, o trabalhador só pode executar o serviço se estiver autorizado.'),
+ ('De quanto em quanto tempo precisa reciclar?', 'Depende da norma. A NR-35 pede reciclagem a cada 2 anos, a NR-10 também, e a NR-33 todo ano. Também precisa refazer quando muda o procedimento ou a função, ou quando o trabalhador fica afastado por mais de 90 dias. A gente avisa a empresa quando estiver chegando a hora.'),
+ ('Vocês fazem o treinamento dentro da minha empresa?', 'Sim. A maior parte das turmas é in company, com a parte prática feita nos equipamentos e no ambiente da própria empresa. Também organizamos turmas presenciais.'),
+ ('Tem número mínimo de pessoas pra turma in company?', 'Depende do curso e da logística. Chama no WhatsApp com o curso e a quantidade de pessoas que a gente monta a proposta certa pra você.'),
+ ('Atendem fora de Goiânia?', 'Atendemos empresas em todo o estado de Goiás. Pra outras regiões, fala com a gente que avaliamos.'),
+ ('Como funciona o orçamento?', 'É só chamar no WhatsApp ou usar o atendimento no canto da tela. Com o curso, a quantidade de pessoas e a cidade, a gente já consegue te passar uma proposta.'),
+]
+
+def faq_block():
+    items = '\n'.join(f'''<details class="faq-item" style="border-bottom: 1px solid var(--line);">
+<summary style="list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; font-size: 19px; font-weight: 700;">{esc(q)}<span class="faq-ic" aria-hidden="true"></span></summary>
+<p style="margin: 0 0 22px; font-size: 17px; line-height: 1.65; color: var(--muted); max-width: 760px;">{esc(a)}</p>
+</details>''' for q, a in FAQ)
+    return f'''<section id="duvidas" style="background: var(--surface);">
+<div style="max-width: 1240px; margin: 0 auto; padding: 88px 24px; display: flex; flex-wrap: wrap; gap: 48px;">
+<div style="flex: 1 1 300px; min-width: 0;">
+<div style="font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-ink); margin-bottom: 12px;">Dúvidas</div>
+<h2 style="margin: 0 0 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1;">Perguntas sobre os cursos.</h2>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted);">Não achou a sua? <a href="https://wa.me/{WA}" style="font-weight: 700;">Pergunta direto no WhatsApp</a>.</p>
+</div>
+<div style="flex: 2 1 560px; min-width: 0; border-top: 1px solid var(--line);">
+{items}
+</div>
+</div>
+</section>'''
+
 # ---------------------------------------------------------------- blocos
 def fact(label, value):
     return f'''<div style="background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
@@ -297,10 +326,13 @@ def indice():
 </div>
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: var(--muted); max-width: 820px;">As cargas horárias informadas seguem o mínimo previsto em cada norma. A turma pode ter mais horas conforme a necessidade da empresa.</p>
 </div>
-</section>'''
+</section>
+
+''' + faq_block()
+    faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
     return page('cursos', 'Cursos de NR em Goiânia: NR-35, NR-33, NR-11, NR-10 e mais | Segbem',
                 'Treinamentos de NR em Goiânia e todo Goiás: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, plataforma elevatória, primeiros socorros e brigada. In company ou presencial.',
-                body, active='cursos.html')
+                body, active='cursos.html', ld=faq_ld)
 
 def p404():
     body = f'''<section style="background: #0d3b24; color: #ffffff;">

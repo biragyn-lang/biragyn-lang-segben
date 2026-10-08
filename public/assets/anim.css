@@ -115,3 +115,10 @@ section:not(#brigada) h2:not(.card h2){text-transform:none !important;letter-spa
   .gal img:nth-child(n+5){display:none}
   .plano{padding:32px 24px !important}
 }
+
+/* Treinamentos da home viram carrossel no celular */
+@media (max-width:700px){
+  .tcards{display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:24px;gap:14px !important;margin:0 -24px;padding:4px 24px 12px;scrollbar-width:none}
+  .tcards::-webkit-scrollbar{display:none}
+  .tcards > .card{flex:0 0 78%;scroll-snap-align:start}
+}

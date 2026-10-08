@@ -29,3 +29,4 @@ A imagem de compartilhamento sai de `python3 tools/og.py`.
 
 ## Rollback
 A versão anterior ao pacote de melhorias está na branch `backup-v1-antes-melhorias`.
+A versão antes de enxugar a home está na branch `backup-v2-antes-enxugar`.
