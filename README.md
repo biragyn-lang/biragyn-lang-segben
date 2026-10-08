@@ -1,0 +1,2 @@
+# biragyn-lang-segben
+segben
