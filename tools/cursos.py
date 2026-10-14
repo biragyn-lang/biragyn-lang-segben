@@ -139,6 +139,13 @@ CURSOS = [
   publico=['Brigadistas', 'Líderes e supervisores', 'Equipes que trabalham longe de atendimento médico'],
   conteudo=['Avaliação da cena e acionamento do socorro', 'Reanimação cardiopulmonar (RCP)', 'Engasgo', 'Hemorragias, queimaduras e fraturas', 'Imobilização e transporte de vítima'],
   pratica='Na prática, a turma treina RCP em manequim, imobilização e transporte de vítima.'),
+ dict(slug='curso-lei-lucas', code='Lei Lucas', nome='Primeiros socorros nas escolas', foto='leilucas.webp',
+  lead='Pra professores e funcionários de escolas e espaços de recreação infantil, como pede a Lei 13.722/2018.',
+  carga='Definida conforme a turma', reciclagem='Todo ano, como pede a lei',
+  quando='A Lei Lucas obriga escolas públicas e particulares de educação básica e estabelecimentos de recreação infantil a capacitar professores e funcionários em primeiros socorros todo ano.',
+  publico=['Professores e auxiliares de sala', 'Funcionários de escolas, creches e berçários', 'Equipes de buffets, brinquedotecas e espaços de recreação infantil'],
+  conteudo=['Avaliação da cena e acionamento do SAMU e dos Bombeiros', 'Engasgo em bebês e crianças', 'Reanimação cardiopulmonar (RCP) infantil', 'Convulsão e desmaio', 'Quedas, fraturas e traumas na cabeça', 'Hemorragias, queimaduras e intoxicações'],
+  pratica='Na prática, a equipe treina desengasgo e RCP em manequim, curativo e imobilização.'),
 ]
 OUTROS = ['NR-01 Gerenciamento de riscos', 'NR-06 EPI', 'NR-17 Ergonomia', 'NR-18 Construção civil', 'NR-23 Combate a incêndio', 'NR-24 Higiene e conforto', 'NR-31 Trabalho rural', 'NR-32 Serviços de saúde', 'NR-36 Frigoríficos', 'NR-16 Anexo V, motociclistas']
 
@@ -149,7 +156,7 @@ FAQ = [
  ('De quanto em quanto tempo precisa reciclar?', 'Depende da norma. A NR-35 pede reciclagem a cada 2 anos, a NR-10 também, e a NR-33 todo ano. Também precisa refazer quando muda o procedimento ou a função, ou quando o trabalhador fica afastado por mais de 90 dias. A gente avisa a empresa quando estiver chegando a hora.'),
  ('Vocês fazem o treinamento dentro da minha empresa?', 'Sim. A maior parte das turmas é in company, com a parte prática feita nos equipamentos e no ambiente da própria empresa. Também organizamos turmas presenciais.'),
  ('Tem número mínimo de pessoas pra turma in company?', 'Depende do curso e da logística. Chama no WhatsApp com o curso e a quantidade de pessoas que a gente monta a proposta certa pra você.'),
- ('Atendem fora de Goiânia?', 'Atendemos empresas em todo o estado de Goiás. Pra outras regiões, fala com a gente que avaliamos.'),
+ ('Atendem fora de Goiânia?', 'Sim. Temos clientes em Goiás, Tocantins, Maranhão e Mato Grosso. Pra outras regiões, fala com a gente que avaliamos.'),
  ('Como funciona o orçamento?', 'É só chamar no WhatsApp ou usar o atendimento no canto da tela. Com o curso, a quantidade de pessoas e a cidade, a gente já consegue te passar uma proposta.'),
 ]
 
@@ -265,7 +272,7 @@ def curso_page(c):
 </section>'''
     ld = {"@context": "https://schema.org", "@type": "Course", "name": f"Curso {titulo}", "description": c['lead'],
           "inLanguage": "pt-BR", "provider": {"@type": "Organization", "name": "Segbem Assessoria em Segurança do Trabalho", "sameAs": SITE + "/"}}
-    desc = f"Curso {titulo} em Goiânia e todo Goiás, in company ou presencial. {c['lead']} Carga horária: {c['carga'].lower()}. Orçamento pelo WhatsApp."
+    desc = f"Curso {titulo} em Goiânia, Goiás e região, in company ou presencial. {c['lead']} Carga horária: {c['carga'].lower()}. Orçamento pelo WhatsApp."
     img = f"img/{c['foto']}" if c['foto'] else 'img/og.jpg'
     return page(c['slug'], f"Curso {titulo} em Goiânia | Segbem", desc, body, active='cursos.html', ld=ld, image=img)
 
@@ -294,7 +301,7 @@ def indice():
 <div style="padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 8px; flex: 1;">
 <span style="font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 20px; color: #f2c200;">Brigada</span>
 <h2 style="margin: 0; font-size: 21px; font-weight: 700; line-height: 1.25;">Brigada de emergência</h2>
-<p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #c9d3cb;">Básica 4h, intermediária 8h e avançada 24h. Credenciada junto ao Corpo de Bombeiros de Goiás.</p>
+<p style="margin: 6px 0 0; font-size: 14px; line-height: 1.5; color: #c9d3cb;">Básica 4h, intermediária 8h e avançada 24h. Credenciada junto ao Corpo de Bombeiros Militar de Goiás.</p>
 <span style="margin-top: auto; padding-top: 12px; font-weight: 700; color: #f2c200;">Ver detalhes →</span>
 </div>
 </a>'''
@@ -331,7 +338,7 @@ def indice():
 ''' + faq_block()
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
     return page('cursos', 'Cursos de NR em Goiânia: NR-35, NR-33, NR-11, NR-10 e mais | Segbem',
-                'Treinamentos de NR em Goiânia e todo Goiás: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, plataforma elevatória, primeiros socorros e brigada. In company ou presencial.',
+                'Treinamentos de NR em Goiânia e todo Goiás: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, Lei Lucas, plataforma elevatória, primeiros socorros e brigada. In company ou presencial.',
                 body, active='cursos.html', ld=faq_ld)
 
 def p404():
