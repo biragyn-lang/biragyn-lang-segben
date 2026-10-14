@@ -314,7 +314,7 @@ def indice():
     body = f'''<section style="background: #0d3b24; color: #ffffff;">
 <div style="max-width: 1240px; margin: 0 auto; padding: 64px 24px 72px; display: flex; flex-direction: column; gap: 20px;">
 <div style="display: inline-flex; align-self: flex-start; background: rgba(242,194,0,0.14); color: #f2c200; font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 14px; border-radius: 4px;">Principais cursos</div>
-<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 76px); line-height: 0.98; text-transform: uppercase; max-width: 900px;">Treinamentos de NR em Goiânia e todo Goiás.</h1>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 76px); line-height: 0.98; text-transform: uppercase; max-width: 900px;">Treinamentos de NR em Goiás, Tocantins, Maranhão e Mato Grosso.</h1>
 <p style="margin: 0; font-size: 19px; line-height: 1.6; color: #d5e4d8; max-width: 640px;">Os principais cursos com carga horária, reciclagem e conteúdo. Não achou o seu? A gente realiza outros, é só chamar. Turmas in company, com a prática feita nos equipamentos da sua empresa, ou turmas presenciais.</p>
 </div>
 </section>
@@ -338,7 +338,7 @@ def indice():
 ''' + faq_block()
     faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in FAQ]}
     return page('cursos', 'Cursos de NR em Goiânia: NR-35, NR-33, NR-11, NR-10 e mais | Segbem',
-                'Treinamentos de NR em Goiânia e todo Goiás: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, Lei Lucas, plataforma elevatória, primeiros socorros e brigada. In company ou presencial.',
+                'Treinamentos de NR em Goiás, Tocantins, Maranhão e Mato Grosso: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, Lei Lucas, plataforma elevatória, primeiros socorros e brigada. In company ou presencial.',
                 body, active='cursos.html', ld=faq_ld)
 
 def p404():
