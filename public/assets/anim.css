@@ -66,8 +66,9 @@ html,body{overflow-x:clip}
 
 /* Logos dos clientes no letreiro (cai pro nome se o arquivo não existir) */
 .marquee-track{align-items:center}
-.cl{display:inline-flex;align-items:center;justify-content:center;height:76px;padding:8px 18px;border-radius:10px;transition:background .3s ease}
-.cl img{width:auto;max-width:200px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .3s ease,opacity .3s ease}
+.cl{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:200px;height:84px;padding:12px 20px;border-radius:10px;transition:background .3s ease}
+.cl img{width:100%;height:100%!important;max-width:none;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .3s ease,opacity .3s ease}
+@media (max-width:600px){.cl{width:150px;height:68px;padding:10px 14px}}
 .cl:hover img{filter:none;opacity:1}
 .cl b{display:none;font-weight:700}
 .cl.nologo b{display:inline}
