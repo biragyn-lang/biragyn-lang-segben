@@ -1,0 +1,40 @@
+/* Variações de estilo das seções da home, escolhidas no Pages CMS (campo "Estilo" de cada seção).
+   As seções usam var(--surface) e var(--alt) no fundo e nos cards; cada variação só redefine essas
+   variáveis dentro da seção, então os cards e textos acompanham, inclusive no modo escuro. */
+
+/* Texto formatado vindo do CMS */
+.rt a{font-weight:700}
+
+/* Tons usados pelas variações (claro e escuro) */
+:root{--v-branco:#ffffff;--v-cinza:#f4f6f1;--v-escuro:#14201a;--v-escuro-card:#1d2b23}
+:root[data-theme="dark"]{--v-branco:#141d17;--v-cinza:#0e1511;--v-escuro:#0a100c;--v-escuro-card:#141d17}
+
+/* Fundo escuro em qualquer tema: textos claros, linhas e etiquetas do modo escuro */
+.v-escuro{color-scheme:dark;color:var(--ink);--ink:#e6ede7;--ink2:#cfd9d1;--muted:#a3b2a7;--line:#2b3a31;--brand-ink:var(--c-principal-claro);--tag-bg:var(--c-tag-bg-escuro);--tag-ink:var(--c-tag-ink-escuro);--num:#34463a}
+
+/* Assessoria (fundo padrão: branco, cards cinza) */
+#servicos.v-cinza{--surface:var(--v-cinza);--alt:var(--v-branco)}
+#servicos.v-escuro{--surface:var(--v-escuro);--alt:var(--v-escuro-card)}
+#servicos.v-escuro .plano{box-shadow:inset 0 0 0 1px var(--line)}
+
+/* Treinamentos (fundo padrão: cinza, cards brancos) */
+#treinamentos.v-branco{--alt:var(--v-branco);--surface:var(--v-cinza)}
+#treinamentos.v-escuro{--alt:var(--v-escuro);--surface:var(--v-escuro-card)}
+
+/* Topo: mídia à esquerda, ou texto centralizado sem mídia */
+#topo.v-invertido>div{flex-direction:row-reverse}
+#topo.v-centro .hero-media{display:none}
+#topo.v-centro>div>div:first-child{align-items:center;text-align:center}
+#topo.v-centro>div>div:first-child>*{align-self:center !important;justify-content:center;margin-left:auto;margin-right:auto}
+
+/* Avaliações em grade: cards parados, sem a animação das colunas */
+#avaliacoes .reviews .tms-card{height:100%}
+
+/* Brigada: foto à direita, ou fundo na cor escura da marca */
+#brigada.v-invertido>div{flex-direction:row-reverse}
+:root #brigada.v-marca,:root[data-theme="dark"] #brigada.v-marca{background:var(--c-escura) !important}
+#brigada.v-marca .brig-row{border-color:rgba(255,255,255,.2) !important}
+
+/* Contato: fundo na cor escura da marca, ou grafite */
+#contato.v-escura{background:var(--c-escura) !important;color:#ffffff !important}
+#contato.v-neutro{background:#14201a !important;color:#ffffff !important}

@@ -34,7 +34,7 @@ html,body{overflow-x:clip}
 
 /* Linha verde dos passos crescendo */
 .js .step{border-top-color:transparent !important;position:relative}
-.js .step::before{content:"";position:absolute;left:0;right:0;top:-4px;height:4px;background:#17752f;transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0ms) + 150ms)}
+.js .step::before{content:"";position:absolute;left:0;right:0;top:-4px;height:4px;background:var(--c-principal);transform:scaleX(0);transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0ms) + 150ms)}
 .js .step.in::before{transform:scaleX(1)}
 
 /* Botões e cards */
@@ -50,17 +50,17 @@ html,body{overflow-x:clip}
 .site-header.scrolled{box-shadow:0 6px 20px rgba(0,0,0,.08)}
 
 /* Botão flutuante do WhatsApp com pulso */
-.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #17752f;animation:pulse 2.2s ease-out infinite}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--c-principal);animation:pulse 2.2s ease-out infinite}
 @keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(1.6);opacity:0}}
 
 /* Selo dos bombeiros brilhando de leve */
 .seal svg{animation:seal 3s ease-in-out infinite}
-@keyframes seal{50%{filter:drop-shadow(0 0 6px rgba(242,194,0,.7))}}
+@keyframes seal{50%{filter:drop-shadow(0 0 6px color-mix(in srgb, var(--c-destaque) 70%, transparent))}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
   .js .rv,.js .w>span{opacity:1 !important;transform:none !important}
-  .js .step{border-top-color:#17752f !important}
+  .js .step{border-top-color:var(--c-principal) !important}
   .js .step::before{display:none}
 }
 
@@ -100,7 +100,7 @@ section:not(#brigada) h2:not(.card h2){text-transform:none !important;letter-spa
 /* Vídeo do topo entra igual à foto */
 .hero-media video{animation:heroIn 1.4s cubic-bezier(.2,.7,.2,1) both}
 /* Plano mensal */
-.plano::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:28px solid rgba(242,194,0,.08);pointer-events:none}
+.plano::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;border:28px solid color-mix(in srgb, var(--c-destaque) 8%, transparent);pointer-events:none}
 /* FAQ */
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary:hover{color:var(--brand-ink)}

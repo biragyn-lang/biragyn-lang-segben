@@ -1,29 +1,93 @@
 # Configuração do Pages CMS (https://pagescms.org)
-# Tudo que dá pra editar pelo painel fica em content/site.json.
+# Tudo que dá pra editar pelo painel fica em content/site.yml.
 # Ao salvar, o Pages CMS faz um commit no GitHub e o deploy automático da Cloudflare
 # roda o build (node tools/build.mjs) e publica o site em 1 ou 2 minutos.
 
 media:
-  - name: logos
-    label: Logos dos clientes
-    input: public/img/clientes
-    output: img/clientes
-    categories: [image]
-  - name: fotos
-    label: Fotos do site
+  - name: midia
+    label: Imagens e vídeos
     input: public/img
     output: img
-    categories: [image]
+    categories: [image, video]
+
+components:
+  texto_formatado:
+    type: rich-text
+    options:
+      format: html
+      media: false
+  imagem:
+    type: image
+    options:
+      media: midia
+  descricao_imagem:
+    type: string
+    label: Descrição da imagem
+    description: "O que aparece na imagem, pra quem usa leitor de tela e pro Google."
 
 content:
   - name: site
     label: Conteúdo do site
     type: file
-    path: content/site.json
-    format: json
+    path: content/site.yml
+    format: yaml
     fields:
 
-      # ------------------------------------------------------------ contato
+      # ============================================================ identidade
+      - name: identidade
+        label: Identidade visual
+        type: object
+        fields:
+          - name: logo
+            label: Logo (fundo claro)
+            component: imagem
+          - name: logo_escuro
+            label: Logo (modo escuro)
+            component: imagem
+            description: "Versão do logo que aparece quando o visitante usa o modo escuro."
+          - name: cor_principal
+            label: Cor principal
+            type: select
+            description: "Botões verdes, links, fundo da seção de contato. O tom escuro dos fundos (topo, rodapé) é calculado a partir dela."
+            options:
+              values:
+                - { name: "#17752f", label: "Verde Segbem (atual)" }
+                - { name: "#1d5fa8", label: "Azul segurança" }
+                - { name: "#13646e", label: "Azul petróleo" }
+                - { name: "#b3261e", label: "Vermelho bombeiro" }
+                - { name: "#c2410c", label: "Laranja queimado" }
+                - { name: "#374151", label: "Grafite" }
+          - name: cor_principal_outra
+            label: Outra cor principal (código)
+            type: string
+            description: "Opcional. Pra usar uma cor fora da lista, cole o código, ex.: #17752f. Precisa ser escura o bastante pra texto branco por cima. Deixe vazio pra usar a cor escolhida acima."
+            pattern:
+              regex: "^(#[0-9a-fA-F]{6})?$"
+              message: "Use o formato #rrggbb, ex.: #17752f"
+          - name: cor_secundaria
+            label: Cor secundária (destaque)
+            type: select
+            description: "Botões amarelos, estrelas, faixa zebrada e etiquetas do topo. A cor do texto por cima é escolhida sozinha."
+            options:
+              values:
+                - { name: "#f2c200", label: "Amarelo Segbem (atual)" }
+                - { name: "#f59e0b", label: "Laranja âmbar" }
+                - { name: "#facc15", label: "Amarelo ouro" }
+                - { name: "#a3e635", label: "Verde-limão" }
+                - { name: "#22d3ee", label: "Ciano" }
+                - { name: "#ffffff", label: "Branco" }
+          - name: cor_secundaria_outra
+            label: Outra cor secundária (código)
+            type: string
+            description: "Opcional. Código de cor, ex.: #f2c200. Deixe vazio pra usar a cor escolhida acima."
+            pattern:
+              regex: "^(#[0-9a-fA-F]{6})?$"
+              message: "Use o formato #rrggbb, ex.: #f2c200"
+          - name: rodape
+            label: Frase do rodapé
+            type: string
+
+      # ============================================================ contato
       - name: contato
         label: Contato
         type: object
@@ -50,12 +114,16 @@ content:
           - name: google
             label: Link do Google
             type: string
-            description: "Link da empresa no Google. É usado no selo \"5,0 no Google\", em \"Ver no Google\" e em \"Como chegar\"."
+            description: "Link da empresa no Google. Usado no selo de nota, em \"Ver no Google\" e em \"Como chegar\"."
+          - name: nota_google
+            label: Nota no Google
+            type: string
+            description: "Ex.: 5,0"
           - name: endereco
             label: Endereço
             type: string
             required: true
-            description: "Rua, número, quadra, lote, sala e setor. Ex.: Av. Anhanguera, 2987, Qd. 38 Lt. 96, Sala 911, Setor Central"
+            description: "Rua, número, quadra, lote, sala e setor."
           - name: cidade
             label: Cidade
             type: string
@@ -78,208 +146,472 @@ content:
             label: CNPJ
             type: string
 
-      # ------------------------------------------------------------ contadores
-      - name: contadores
-        label: Números da página Clientes
-        description: "Os números grandes que contam sozinhos no topo da página Clientes."
+      # ============================================================ home
+      - name: home
+        label: Página inicial
         type: object
-        list:
-          collapsible:
-            collapsed: true
-            summary: "+{numero} {texto}"
         fields:
-          - name: numero
-            label: Número
-            type: number
-            required: true
-            description: "Só o número, sem ponto e sem +. Ex.: 1000 aparece no site como +1.000."
-            options:
-              min: 0
-          - name: texto
-            label: Texto embaixo do número
-            type: string
-            required: true
-            description: "Ex.: empresas atendidas"
+          - name: seo
+            label: Google e compartilhamento
+            type: object
+            fields:
+              - { name: titulo, label: Título da aba e do Google, type: string }
+              - { name: descricao, label: Descrição no Google, type: text }
 
-      # ------------------------------------------------------------ clientes
+          - name: secoes
+            label: Seções (ordem e visibilidade)
+            description: "Arraste pra mudar a ordem das seções. Desmarque \"Mostrar\" pra esconder sem perder o conteúdo. O topo fica sempre em primeiro."
+            type: object
+            list:
+              min: 7
+              max: 7
+              collapsible:
+                collapsed: true
+                summary: "{secao}"
+            fields:
+              - name: secao
+                label: Seção
+                type: select
+                required: true
+                options:
+                  values:
+                    - { name: clientes, label: "Faixa de logos dos clientes" }
+                    - { name: assessoria, label: "Assessoria" }
+                    - { name: treinamentos, label: "Principais treinamentos" }
+                    - { name: avaliacoes, label: "Avaliações" }
+                    - { name: brigada, label: "Brigada" }
+                    - { name: faq, label: "Perguntas frequentes" }
+                    - { name: contato, label: "Contato" }
+              - name: mostrar
+                label: Mostrar
+                type: boolean
+                default: true
+
+          - name: topo
+            label: Topo
+            type: object
+            fields:
+              - name: estilo
+                label: Estilo
+                type: select
+                options:
+                  values:
+                    - { name: padrao, label: "Texto à esquerda, vídeo à direita" }
+                    - { name: invertido, label: "Vídeo à esquerda, texto à direita" }
+                    - { name: centro, label: "Só texto, centralizado" }
+              - { name: etiqueta, label: Etiqueta acima do título, type: string }
+              - { name: titulo, label: Título, type: string, required: true }
+              - { name: texto, label: Texto, component: texto_formatado }
+              - { name: botao_principal, label: Botão do WhatsApp, type: string }
+              - { name: botao_secundario, label: Botão "ver treinamentos", type: string }
+              - name: video
+                label: Vídeo
+                type: file
+                description: "MP4 curto e leve (até uns 5 MB). Sem vídeo, aparece a imagem abaixo."
+                options:
+                  media: midia
+                  path: public/img/video
+                  extensions: [mp4, webm]
+              - name: imagem
+                label: Imagem
+                component: imagem
+                description: "Aparece enquanto o vídeo carrega, ou no lugar dele se não tiver vídeo."
+              - { name: imagem_descricao, component: descricao_imagem }
+              - { name: legenda, label: Legenda sobre o vídeo, type: string, description: "Deixe vazio pra não mostrar." }
+              - { name: selo, label: Selo dos bombeiros, type: text, description: "Deixe vazio pra não mostrar." }
+
+          - name: faixa_clientes
+            label: Faixa de logos dos clientes
+            type: object
+            description: "Os logos vêm da lista Clientes, mais abaixo."
+            fields:
+              - { name: titulo, label: Título, type: string }
+              - { name: link, label: Texto do link, type: string }
+
+          - name: assessoria
+            label: Assessoria
+            type: object
+            fields:
+              - name: estilo
+                label: Estilo
+                type: select
+                options:
+                  values:
+                    - { name: padrao, label: "Fundo branco" }
+                    - { name: cinza, label: "Fundo cinza" }
+                    - { name: escuro, label: "Fundo escuro" }
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, component: texto_formatado }
+              - name: destaque
+                label: Card com foto
+                type: object
+                fields:
+                  - { name: etiqueta, label: Etiqueta, type: string }
+                  - { name: titulo, label: Título, type: string }
+                  - { name: texto, label: Texto, component: texto_formatado }
+                  - { name: imagem, label: Foto, component: imagem }
+                  - { name: imagem_descricao, component: descricao_imagem }
+              - name: cards
+                label: Cards ao lado da foto
+                description: "Ficam empilhados ao lado do card com foto. 3 é o que fica melhor."
+                type: object
+                list:
+                  collapsible: { collapsed: true, summary: "{titulo}" }
+                fields:
+                  - { name: titulo, label: Título, type: string }
+                  - { name: texto, label: Texto, component: texto_formatado }
+              - name: destaque_2
+                label: Card com borda amarela
+                type: object
+                fields:
+                  - { name: etiqueta, label: Etiqueta, type: string }
+                  - { name: titulo, label: Título, type: string }
+                  - { name: texto, label: Texto, component: texto_formatado }
+              - name: cards_2
+                label: Cards ao lado do card com borda
+                type: object
+                list:
+                  collapsible: { collapsed: true, summary: "{titulo}" }
+                fields:
+                  - { name: titulo, label: Título, type: string }
+                  - { name: texto, label: Texto, component: texto_formatado }
+              - name: plano
+                label: Plano mensal
+                type: object
+                fields:
+                  - { name: mostrar, label: Mostrar o plano mensal, type: boolean, default: true }
+                  - { name: etiqueta, label: Etiqueta, type: string }
+                  - { name: titulo, label: Título, type: string }
+                  - { name: texto, label: Texto, component: texto_formatado }
+                  - { name: botao, label: Texto do botão, type: string }
+                  - { name: mensagem, label: Mensagem que abre no WhatsApp, type: text }
+                  - { name: itens, label: O que está incluso, type: string, list: true }
+                  - { name: observacao, label: Observação, type: string }
+
+          - name: treinamentos
+            label: Principais treinamentos
+            type: object
+            description: "Os cards vêm da lista Cursos (os marcados com \"Mostrar na página inicial\")."
+            fields:
+              - name: estilo
+                label: Estilo
+                type: select
+                options:
+                  values:
+                    - { name: padrao, label: "Fundo cinza" }
+                    - { name: branco, label: "Fundo branco" }
+                    - { name: escuro, label: "Fundo escuro" }
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: selos, label: Selos ao lado do título, type: string, list: true }
+              - { name: botao, label: Texto do botão, type: string }
+              - { name: nao_achou, label: Frase "não achou seu curso", type: text }
+              - { name: nao_achou_link, label: Texto do link, type: string }
+              - { name: nao_achou_mensagem, label: Mensagem que abre no WhatsApp, type: text }
+
+          - name: avaliacoes
+            label: Avaliações
+            type: object
+            description: "Os depoimentos vêm da lista Depoimentos, mais abaixo."
+            fields:
+              - name: estilo
+                label: Estilo
+                type: select
+                options:
+                  values:
+                    - { name: padrao, label: "Colunas que sobem sozinhas" }
+                    - { name: grade, label: "Grade parada" }
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: link, label: Texto do link do Google, type: string }
+
+          - name: brigada
+            label: Brigada
+            type: object
+            fields:
+              - name: estilo
+                label: Estilo
+                type: select
+                options:
+                  values:
+                    - { name: padrao, label: "Fundo grafite, foto à esquerda" }
+                    - { name: invertido, label: "Fundo grafite, foto à direita" }
+                    - { name: marca, label: "Fundo na cor escura da marca" }
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, component: texto_formatado }
+              - { name: imagem, label: Foto, component: imagem }
+              - { name: imagem_descricao, component: descricao_imagem }
+              - name: niveis
+                label: Níveis da brigada
+                type: object
+                list:
+                  collapsible: { collapsed: true, summary: "{nome}: {horas}" }
+                fields:
+                  - { name: nome, label: Nome, type: string }
+                  - { name: horas, label: Carga horária, type: string, description: "Ex.: 4 horas" }
+              - { name: botao, label: Texto do botão, type: string }
+
+          - name: faq
+            label: Perguntas frequentes
+            type: object
+            fields:
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - name: texto
+                label: Texto ao lado
+                component: texto_formatado
+                description: "Num link pro WhatsApp, use o endereço https://wa.me/{whatsapp} que o número entra sozinho."
+              - name: perguntas
+                label: Perguntas
+                type: object
+                list:
+                  collapsible: { collapsed: true, summary: "{pergunta}" }
+                fields:
+                  - { name: pergunta, label: Pergunta, type: string }
+                  - { name: resposta, label: Resposta, component: texto_formatado }
+
+          - name: contato
+            label: Contato
+            type: object
+            description: "O telefone, o Instagram e o e-mail vêm do bloco Contato, lá em cima."
+            fields:
+              - name: estilo
+                label: Estilo
+                type: select
+                options:
+                  values:
+                    - { name: padrao, label: "Fundo na cor principal" }
+                    - { name: escura, label: "Fundo na cor escura da marca" }
+                    - { name: neutro, label: "Fundo grafite" }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, component: texto_formatado }
+
+      # ============================================================ página clientes
+      - name: pagina_clientes
+        label: Página Clientes
+        type: object
+        fields:
+          - name: seo
+            label: Google e compartilhamento
+            type: object
+            fields:
+              - { name: titulo, label: Título da aba e do Google, type: string }
+              - { name: descricao, label: Descrição no Google, type: text }
+          - { name: etiqueta, label: Etiqueta, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto, component: texto_formatado }
+          - name: contadores
+            label: Números (contadores)
+            description: "Os números grandes que contam sozinhos no topo da página."
+            type: object
+            list:
+              collapsible: { collapsed: true, summary: "+{numero} {texto}" }
+            fields:
+              - name: numero
+                label: Número
+                type: number
+                required: true
+                description: "Só o número, sem ponto e sem +. Ex.: 1000 aparece como +1.000."
+                options:
+                  min: 0
+              - { name: texto, label: Texto embaixo do número, type: string, required: true }
+          - name: chamada
+            label: Card "Sua empresa aqui"
+            type: object
+            fields:
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, type: text }
+          - name: setores
+            label: Setores
+            type: object
+            fields:
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - name: itens
+                label: Setores
+                type: object
+                list:
+                  collapsible: { collapsed: true, summary: "{nome}" }
+                fields:
+                  - name: icone
+                    label: Ícone
+                    type: select
+                    options:
+                      values:
+                        - { name: industria, label: Fábrica }
+                        - { name: logistica, label: Caminhão }
+                        - { name: alimentacao, label: Talheres }
+                        - { name: saude, label: Cruz de saúde }
+                        - { name: educacao, label: Capelo de formatura }
+                        - { name: construcao, label: Capacete }
+                  - { name: nome, label: Nome do setor, type: string }
+                  - { name: texto, label: Texto, type: text }
+                  - { name: normas, label: Normas, type: string, description: "Ex.: NR-12 · NR-11 · NR-20" }
+                  - { name: rotulo, label: Rótulo antes dos clientes, type: string, description: "Ex.: Quem já atendemos: (deixe vazio pra mostrar só o texto em negrito)" }
+                  - { name: atendidos, label: Clientes do setor, type: string }
+
+      # ============================================================ página cursos
+      - name: pagina_cursos
+        label: Página Cursos
+        type: object
+        fields:
+          - name: seo
+            label: Google e compartilhamento
+            type: object
+            fields:
+              - { name: titulo, label: Título da aba e do Google, type: string }
+              - { name: descricao, label: Descrição no Google, type: text }
+          - { name: etiqueta, label: Etiqueta, type: string }
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto, component: texto_formatado }
+          - name: brigada
+            label: Card da brigada
+            type: object
+            fields:
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, type: text }
+              - { name: imagem, label: Foto, component: imagem }
+          - name: nao_achou
+            label: Card "Não achou o seu curso?"
+            type: object
+            fields:
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto, type: text }
+              - { name: botao, label: Texto do botão, type: string }
+              - { name: mensagem, label: Mensagem que abre no WhatsApp, type: text }
+          - { name: outros_titulo, label: Título dos outros cursos, type: string }
+          - name: outros_cursos
+            label: Outros cursos que realizamos
+            description: "Botões menores no fim da página. Cada um abre o WhatsApp já com o nome do curso."
+            type: string
+            list: true
+          - { name: nota, label: Observação sobre carga horária, type: text }
+          - name: faq
+            label: Perguntas frequentes
+            type: object
+            fields:
+              - { name: etiqueta, label: Etiqueta, type: string }
+              - { name: titulo, label: Título, type: string }
+              - { name: texto, label: Texto ao lado, component: texto_formatado }
+              - name: perguntas
+                label: Perguntas
+                type: object
+                list:
+                  collapsible: { collapsed: true, summary: "{pergunta}" }
+                fields:
+                  - { name: pergunta, label: Pergunta, type: string }
+                  - { name: resposta, label: Resposta, component: texto_formatado }
+
+      # ============================================================ textos das páginas de curso
+      - name: pagina_curso
+        label: Textos comuns das páginas de curso
+        type: object
+        description: "Valem pra todas as páginas de curso. O conteúdo de cada curso fica na lista Cursos."
+        fields:
+          - { name: etiqueta, label: Etiqueta do topo, type: string, description: "{codigo} vira o código do curso. Ex.: Curso {codigo} em Goiânia e Goiás" }
+          - { name: complemento, label: Frase depois da descrição, type: string }
+          - { name: botao, label: Botão do topo, type: string }
+          - { name: modalidade, label: Quadro "Modalidade", type: string }
+          - { name: certificado, label: Quadro "Certificado", type: string }
+          - { name: publico_etiqueta, label: Etiqueta "pra quem é", type: string }
+          - { name: publico_titulo, label: Título "quem precisa fazer", type: string }
+          - { name: conteudo_etiqueta, label: Etiqueta "conteúdo", type: string }
+          - { name: conteudo_titulo, label: Título "o que a turma aprende", type: string }
+          - { name: chamada_titulo, label: Faixa verde - título, type: string }
+          - { name: chamada_texto, label: Faixa verde - texto, type: text }
+          - { name: chamada_botao, label: Faixa verde - botão, type: string }
+          - { name: outros_titulo, label: Título "outros cursos", type: string }
+
+      # ============================================================ 404
+      - name: pagina_404
+        label: Página de erro (404)
+        type: object
+        fields:
+          - { name: titulo, label: Título, type: string }
+          - { name: texto, label: Texto, type: string }
+          - { name: botao_inicio, label: Botão "início", type: string }
+          - { name: botao_cursos, label: Botão "cursos", type: string }
+
+      # ============================================================ clientes
       - name: clientes
         label: Clientes
-        description: "Aparecem na faixa de logos da home e nos cards da página Clientes, nesta ordem. Arraste pra mudar a ordem."
+        description: "Aparecem na faixa de logos da página inicial e nos cards da página Clientes, nesta ordem. Arraste pra mudar a ordem."
         type: object
         list:
-          collapsible:
-            collapsed: true
-            summary: "{nome}"
+          collapsible: { collapsed: true, summary: "{nome}" }
         fields:
-          - name: nome
-            label: Nome da empresa
-            type: string
-            required: true
+          - { name: nome, label: Nome da empresa, type: string, required: true }
           - name: logo
             label: Logo
-            type: image
-            description: "PNG com fundo transparente fica melhor. Sem logo, a faixa da home mostra o nome da empresa."
+            component: imagem
+            description: "PNG com fundo transparente fica melhor. Sem logo, a faixa mostra o nome da empresa."
             options:
-              media: logos
+              media: midia
+              path: public/img/clientes
           - name: altura_logo
             label: Altura do logo na faixa (px)
             type: number
-            description: "Entre 40 e 60 costuma ficar bom. Diminua se o logo parecer grande demais perto dos outros."
             default: 60
-            options:
-              min: 30
-              max: 80
-          - name: faixa_home
-            label: Mostrar na faixa de logos da home
-            type: boolean
-            default: true
-          - name: pagina_clientes
-            label: Mostrar na página Clientes
-            type: boolean
-            default: true
-          - name: segmento
-            label: Segmento
-            type: string
-            description: "Texto pequeno acima do nome no card. Ex.: Indústria de alimentos"
-          - name: destaque
-            label: Etiqueta do card
-            type: string
-            description: "O que a Segbem fez lá. Ex.: Treinamento in company, NR-35 Trabalho em altura"
-          - name: foto
-            label: Foto da turma
-            type: image
-            description: "Foto do card na página Clientes. Sem foto, o card mostra o logo."
-            options:
-              media: fotos
-          - name: foto_descricao
-            label: Descrição da foto
-            type: string
-            description: "O que aparece na foto, pra quem usa leitor de tela e pro Google. Ex.: Turma da Camil reunida em sala de treinamento"
+            description: "Entre 40 e 60 costuma ficar bom."
+            options: { min: 30, max: 80 }
+          - { name: faixa_home, label: Mostrar na faixa de logos da página inicial, type: boolean, default: true }
+          - { name: pagina_clientes, label: Mostrar na página Clientes, type: boolean, default: true }
+          - { name: segmento, label: Segmento, type: string, description: "Ex.: Indústria de alimentos" }
+          - { name: destaque, label: Etiqueta do card, type: string, description: "O que a Segbem fez lá. Ex.: Treinamento in company" }
+          - { name: foto, label: Foto da turma, component: imagem, description: "Sem foto, o card mostra o logo." }
+          - { name: foto_descricao, component: descricao_imagem }
           - name: foto_ajuste
             label: Ajuste vertical da foto (%)
             type: number
-            description: "Deixe vazio pra centralizar. Use um número menor (ex.: 25) se a foto estiver cortando a cabeça das pessoas."
-            options:
-              min: 0
-              max: 100
+            description: "Deixe vazio pra centralizar. Use um número menor (ex.: 25) se a foto cortar a cabeça das pessoas."
+            options: { min: 0, max: 100 }
 
-      # ------------------------------------------------------------ depoimentos
+      # ============================================================ depoimentos
       - name: depoimentos
         label: Depoimentos
-        description: "Avaliações que sobem em colunas na home. Vão sendo distribuídos nas 3 colunas na ordem da lista."
+        description: "Avaliações da página inicial. No estilo em colunas, vão sendo distribuídos nas 3 colunas na ordem da lista."
         type: object
         list:
-          collapsible:
-            collapsed: true
-            summary: "{nome}"
+          collapsible: { collapsed: true, summary: "{nome}" }
         fields:
-          - name: nome
-            label: Nome
-            type: string
-            required: true
-            description: "Nome e inicial do sobrenome. Ex.: Larissa C. As iniciais do círculo saem daqui."
-          - name: texto
-            label: Depoimento
-            type: text
-            required: true
+          - { name: nome, label: Nome, type: string, required: true, description: "Nome e inicial do sobrenome. Ex.: Larissa C." }
+          - { name: texto, label: Depoimento, type: text, required: true }
           - name: estrelas
             label: Estrelas
             type: number
             default: 5
-            options:
-              min: 1
-              max: 5
-          - name: origem
-            label: Origem
-            type: string
-            default: Avaliação no Google
-            description: "Se tiver \"Google\" no texto, aparece o ícone do Google."
+            options: { min: 1, max: 5 }
+          - { name: origem, label: Origem, type: string, default: Avaliação no Google, description: "Com \"Google\" no texto, aparece o ícone do Google." }
 
-      # ------------------------------------------------------------ cursos
+      # ============================================================ cursos
       - name: cursos
         label: Cursos
         description: "Cada curso ganha uma página própria e um card na página Cursos, nesta ordem."
         type: object
         list:
-          collapsible:
-            collapsed: true
-            summary: "{codigo} {nome}"
+          collapsible: { collapsed: true, summary: "{codigo} {nome}" }
         fields:
-          - name: codigo
-            label: Código
-            type: string
-            required: true
-            description: "Ex.: NR-35, PEMT, Lei Lucas"
-          - name: nome
-            label: Nome do curso
-            type: string
-            required: true
-          - name: descricao
-            label: Descrição
-            type: text
-            required: true
-            description: "Pra quem é o curso. Aparece no topo da página do curso. Ex.: Pra quem trabalha acima de 2 metros..."
-          - name: carga_horaria
-            label: Carga horária
-            type: string
-            required: true
-            description: "Ex.: 8 horas, teoria e prática"
-          - name: validade
-            label: Validade / reciclagem
-            type: string
-            required: true
-            description: "Ex.: A cada 2 anos, com 8 horas"
-          - name: observacao
-            label: Observação sobre a reciclagem
-            type: text
-            description: "Texto pequeno embaixo dos quadros de carga horária e reciclagem."
-          - name: publico
-            label: Quem precisa fazer
-            type: string
-            list: true
-          - name: conteudo
-            label: O que a turma aprende
-            type: string
-            list: true
-          - name: pratica
-            label: Como é a parte prática
-            type: text
-          - name: foto
-            label: Foto
-            type: image
-            description: "Sem foto, a página mostra o código do curso em amarelo sobre fundo escuro."
-            options:
-              media: fotos
-          - name: home
-            label: Mostrar nos principais treinamentos da home
-            type: boolean
-            default: false
-          - name: nome_curto
-            label: Nome no card da home
-            type: string
-            description: "Opcional. Se ficar vazio, usa o nome do curso."
-          - name: resumo
-            label: Resumo no card da home
-            type: string
-            description: "Uma frase curta. Ex.: Cinto paraquedista, ancoragem, checklist de EPI e resgate."
-          - name: foto_descricao
-            label: Descrição da foto no card da home
-            type: string
+          - { name: codigo, label: Código, type: string, required: true, description: "Ex.: NR-35, PEMT, Lei Lucas" }
+          - { name: nome, label: Nome do curso, type: string, required: true }
+          - { name: descricao, label: Descrição, type: text, required: true, description: "Pra quem é o curso. Aparece no topo da página do curso e no Google." }
+          - { name: carga_horaria, label: Carga horária, type: string, required: true }
+          - { name: validade, label: Validade / reciclagem, type: string, required: true }
+          - { name: observacao, label: Observação sobre a reciclagem, type: text }
+          - { name: publico, label: Quem precisa fazer, type: string, list: true }
+          - { name: conteudo, label: O que a turma aprende, type: string, list: true }
+          - { name: pratica, label: Como é a parte prática, type: text }
+          - { name: foto, label: Foto, component: imagem, description: "Sem foto, a página mostra o código do curso em destaque." }
+          - { name: home, label: Mostrar na página inicial, type: boolean, default: false }
+          - { name: nome_curto, label: Nome no card da página inicial, type: string, description: "Opcional. Vazio usa o nome do curso." }
+          - { name: resumo, label: Resumo no card da página inicial, type: string }
+          - { name: foto_descricao, label: Descrição da foto no card da página inicial, type: string }
           - name: pagina
             label: Endereço da página
             type: string
-            description: "Não mude depois de publicado, senão os links antigos quebram. Se ficar vazio, é criado a partir do código (ex.: curso-nr-35)."
+            description: "Não mude depois de publicado, senão os links antigos quebram. Vazio cria a partir do código (ex.: curso-nr-35)."
             pattern:
               regex: "^([a-z0-9]+(-[a-z0-9]+)*)?$"
               message: "Só letras minúsculas, números e hífen. Ex.: curso-nr-35"
-          - name: codigo_no_titulo
-            label: Mostrar o código no título da página
-            type: boolean
-            default: true
-            description: "Desmarque quando o código não for uma sigla (ex.: no curso de Primeiros socorros)."
-
-      - name: outros_cursos
-        label: Outros cursos que realizamos
-        description: "Botões menores no fim da página Cursos. Cada um abre o WhatsApp já com o nome do curso."
-        type: string
-        list: true
+          - { name: codigo_no_titulo, label: Mostrar o código no título da página, type: boolean, default: true, description: "Desmarque quando o código não for uma sigla (ex.: Primeiros socorros)." }

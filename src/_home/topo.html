@@ -1,0 +1,32 @@
+<section id="topo"{{ calc.v.topo | raw }} style="background: var(--c-escura); color: #ffffff;">
+<div style="max-width: 1240px; margin: 0 auto; padding: 72px 24px 80px; display: flex; flex-wrap: wrap; align-items: center; gap: 48px;">
+<div style="flex: 1 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 24px;">
+<div style="display: inline-flex; align-self: flex-start; align-items: center; gap: 10px; background: color-mix(in srgb, var(--c-destaque) 14%, transparent); color: var(--c-destaque); font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 14px; border-radius: 4px;">{{ home.topo.etiqueta }}</div>
+<h1 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(44px, 6vw, 76px); line-height: 0.98; letter-spacing: -0.01em; text-transform: uppercase;">{{ home.topo.titulo }}</h1>
+<p class="rt" style="margin: 0; font-size: 19px; line-height: 1.6; color: #d5e4d8; max-width: 560px;">{{ home.topo.texto | rt }}</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px;">
+<a class="btn-main" href="https://wa.me/{{ wa }}" style="background: var(--c-destaque); color: var(--c-destaque-txt); text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 6px; display: inline-flex; align-items: center; gap: 10px;">
+<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"></path></svg>
+{{ home.topo.botao_principal }}</a>
+<a class="btn-ghost" href="cursos.html" style="border: 2px solid rgba(255,255,255,0.5); color: #ffffff; text-decoration: none; font-weight: 600; font-size: 17px; padding: 14px 24px; border-radius: 6px;">{{ home.topo.botao_secundario }}</a>
+</div>
+<a class="rating" href="{{ google }}" target="_blank" rel="noopener" aria-label="Nota {{ nota }} no Google, ver avaliações" style="align-self: flex-start; display: inline-flex; align-items: center; gap: 12px; text-decoration: none; color: #ffffff; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.18); border-radius: 10px; padding: 10px 16px;">
+<span style="display: inline-flex; gap: 2px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--c-destaque);"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--c-destaque);"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--c-destaque);"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--c-destaque);"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="color: var(--c-destaque);"><path d="M12 2.8l2.8 5.9 6.4.8-4.7 4.4 1.2 6.4L12 17.2l-5.7 3.1 1.2-6.4L2.8 9.5l6.4-.8z"/></svg></span>
+<span style="display: flex; flex-direction: column; line-height: 1.2;"><strong style="font-size: 16px;">{{ nota }} no Google</strong><span style="font-size: 13px; color: #d5e4d8;">Ver avaliações dos clientes →</span></span>
+</a>
+{{#if home.topo.selo}}
+<div class="seal" style="display: flex; align-items: center; gap: 12px; padding-top: 8px; color: #d5e4d8; font-size: 15px; line-height: 1.45;">
+<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--c-destaque); flex: none;"><path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6l8-3z"></path><path d="M8.5 12l2.5 2.5 4.5-5"></path></svg>
+<span>{{ home.topo.selo }}</span>
+</div>
+{{/if}}
+</div>
+{{#if calc.topo_midia}}
+<div class="hero-media" style="flex: 1 1 420px; min-width: 0; position: relative;">
+{{ calc.topo_midia | raw }}
+</div>
+{{/if}}
+</div>
+</section>
+
+<div class="hz" style="height: 12px;"></div>

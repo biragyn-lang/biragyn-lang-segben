@@ -1,0 +1,628 @@
+# Conteúdo do site da Segbem.
+# Editado pelo Pages CMS (https://app.pagescms.org). Dá pra editar aqui também, mas cuidado com a indentação.
+# Depois de salvar, o deploy roda "node tools/build.mjs" e publica.
+identidade:
+  logo: img/logo.png
+  logo_escuro: img/logo-dark.png
+  cor_principal: "#17752f"
+  cor_principal_outra: ""
+  cor_secundaria: "#f2c200"
+  cor_secundaria_outra: ""
+  rodape: Assessoria e Segurança do Trabalho · Goiânia/GO · Atendemos GO, TO, MA e MT
+contato:
+  whatsapp: (62) 99212-5850
+  email: segbem.sesmt@gmail.com
+  instagram: segbem.sst
+  google: https://share.google/qZmW5BFVZJbC3U3HW
+  endereco: Av. Anhanguera, 2987, Qd. 38 Lt. 96, Sala 911, Setor Central
+  cidade: Goiânia
+  uf: GO
+  cep: 74043-011
+  cnpj: 47.814.205/0001-74
+  nota_google: 5,0
+home:
+  seo:
+    titulo: Segbem | Segurança do Trabalho, Treinamentos de NRs e Brigada em Goiás
+    descricao: Higiene ocupacional, treinamentos de NRs, PGR, LTCAT, PCMSO, eSocial e CIPA, SIPAT, implantação da NR-01 e brigada de emergência. Atendemos GO, TO, MA e MT. Orçamento pelo WhatsApp.
+  secoes:
+    - secao: clientes
+      mostrar: true
+    - secao: assessoria
+      mostrar: true
+    - secao: treinamentos
+      mostrar: true
+    - secao: avaliacoes
+      mostrar: true
+    - secao: brigada
+      mostrar: true
+    - secao: faq
+      mostrar: true
+    - secao: contato
+      mostrar: true
+  topo:
+    estilo: padrao
+    etiqueta: Segurança e saúde no trabalho · GO, TO, MA e MT
+    titulo: Treinamento de verdade, no chão da sua empresa.
+    texto: Implantação da NR-01, PGR, PCMSO, LTCAT, CIPA, SIPAT, treinamentos de NRs e brigada de emergência. Teoria em sala e prática com o equipamento real, na sua operação.
+    botao_principal: Falar com um especialista
+    botao_secundario: Ver treinamentos
+    video: img/video/hero-empilhadeira.mp4
+    imagem: img/hero-poster.webp
+    imagem_descricao: Operador fazendo percurso entre cones com empilhadeira durante treinamento prático
+    legenda: Prática com a máquina de verdade, na operação do cliente.
+    selo: Empresa credenciada junto ao Corpo de Bombeiros Militar do Estado de Goiás para ministrar treinamento de brigada de incêndio.
+  faixa_clientes:
+    titulo: Principais empresas que já treinaram com a gente
+    link: Ver todos os clientes →
+  assessoria:
+    estilo: padrao
+    etiqueta: Assessoria em SST
+    titulo: Sua empresa em dia com as normas. E com o eSocial.
+    texto: Documentação feita por quem vai a campo medir. Nada de laudo de gaveta, cada programa sai do que a gente viu na sua operação.
+    destaque:
+      etiqueta: Nossa especialidade
+      titulo: Higiene Ocupacional
+      texto: Avaliações ambientais quantitativas com equipamento calibrado, como calor (IBUTG) em cozinhas industriais e fábricas. É o que sustenta o PGR, o LTCAT e a defesa da empresa.
+      imagem: img/ibutg.webp
+      imagem_descricao: Avaliação de calor com termômetro de globo ao lado de forno industrial
+    cards:
+      - titulo: PGR e LTCAT
+        texto: Inventário de riscos, plano de ação e laudo técnico para aposentadoria especial.
+      - titulo: PCMSO
+        texto: Programa de controle médico alinhado aos riscos reais do PGR.
+      - titulo: eSocial SST
+        texto: Eventos de SST enviados no prazo, cronograma em dia e sem multa.
+    destaque_2:
+      etiqueta: Especialistas em
+      titulo: Implantação da NR-01
+      texto: Montamos o gerenciamento de riscos ocupacionais da sua empresa do zero. Levantamento em campo, inventário de riscos, plano de ação e PGR, já considerando os fatores de riscos psicossociais que a atualização da norma passou a exigir.
+    cards_2:
+      - titulo: CIPA e SIPAT
+        texto: Processo eleitoral e treinamento da CIPA, e a organização da SIPAT com palestras e atividades pra toda a equipe.
+    plano:
+      mostrar: true
+      etiqueta: Assessoria mensal
+      titulo: Um SESMT terceirizado, sem precisar contratar.
+      texto: Pra empresa que não tem técnico de segurança próprio. A Segbem cuida da rotina de SST todo mês, com um valor fixo combinado conforme o tamanho e o grau de risco da empresa.
+      botao: Quero um plano pra minha empresa
+      mensagem: Olá, Segbem! Vim pelo site e quero saber mais sobre o plano mensal de assessoria em SST.
+      itens:
+        - PGR e inventário de riscos sempre atualizados
+        - Cronograma de treinamentos e controle de vencimentos e reciclagens
+        - Eventos de SST no eSocial dentro do prazo
+        - Visitas técnicas periódicas na empresa
+        - Apoio à CIPA ou ao designado de segurança
+        - Suporte em fiscalização e dúvidas pelo WhatsApp
+      observacao: O que entra no plano é definido junto com você.
+  treinamentos:
+    estilo: padrao
+    etiqueta: Principais treinamentos
+    titulo: Teoria em sala, prática com a máquina de verdade.
+    selos:
+      - Turmas in company
+      - Aulas presenciais
+      - Certificado de conclusão
+    botao: Ver todos os cursos com carga horária e validade →
+    nao_achou: Não achou o seu curso? A gente realiza outros treinamentos conforme a necessidade da sua empresa.
+    nao_achou_link: Fala com a gente no WhatsApp
+    nao_achou_mensagem: Olá, Segbem! Vim pelo site e procuro um curso que não achei na lista.
+  avaliacoes:
+    estilo: padrao
+    etiqueta: Avaliações
+    titulo: Quem treinou e trabalhou com a gente.
+    link: Ver todas no Google →
+  brigada:
+    estilo: padrao
+    etiqueta: Brigada de emergência
+    titulo: Sua equipe pronta antes da emergência acontecer.
+    texto: Somos credenciados junto ao Corpo de Bombeiros Militar do Estado de Goiás pra ministrar o treinamento de brigada de incêndio, com extintor, mangueira e fogo real no pátio da sua empresa.
+    imagem: img/brigada.webp
+    imagem_descricao: Brigadistas manuseando mangueira de incêndio em treinamento
+    niveis:
+      - nome: Brigada básica
+        horas: 4 horas
+      - nome: Brigada intermediária
+        horas: 8 horas
+      - nome: Brigada avançada
+        horas: 24 horas
+    botao: Agendar turma de brigada
+  faq:
+    etiqueta: Dúvidas
+    titulo: Perguntas que todo mundo faz.
+    texto: Tem mais respostas na <a href="cursos.html#duvidas">página de cursos</a>, ou <a href="https://wa.me/{whatsapp}">pergunta direto no WhatsApp</a>.
+    perguntas:
+      - pergunta: O certificado vale na fiscalização?
+        resposta: "Vale. O certificado sai com o que a norma pede: nome do trabalhador, conteúdo, carga horária, data, local, instrutor e assinatura do responsável técnico. Junto vão a lista de presença e o registro da parte prática."
+      - pergunta: Qual a diferença entre capacitado e autorizado?
+        resposta: Capacitado é quem fez o treinamento. Autorizado é quem, além de capacitado e apto no exame médico, recebeu autorização formal da empresa pra fazer aquela atividade. Em NRs como a 10, a 33 e a 35, o trabalhador só pode executar o serviço se estiver autorizado.
+      - pergunta: De quanto em quanto tempo precisa reciclar?
+        resposta: Depende da norma. A NR-35 pede reciclagem a cada 2 anos, a NR-10 também, e a NR-33 todo ano. Também precisa refazer quando muda o procedimento ou a função, ou quando o trabalhador fica afastado por mais de 90 dias. A gente avisa a empresa quando estiver chegando a hora.
+      - pergunta: Vocês fazem o treinamento dentro da minha empresa?
+        resposta: Sim. A maior parte das turmas é in company, com a parte prática feita nos equipamentos e no ambiente da própria empresa, o que deixa o treinamento muito mais próximo da realidade do trabalhador. Também organizamos turmas presenciais.
+  contato:
+    estilo: padrao
+    titulo: Precisa regularizar sua empresa?
+    texto: Chama no WhatsApp e fala direto com um especialista. Atendemos empresas em Goiás, Tocantins, Maranhão e Mato Grosso.
+pagina_clientes:
+  seo:
+    titulo: Clientes | Segbem Segurança do Trabalho
+    descricao: "Empresas que já treinaram suas equipes com a Segbem: Igel Embalagens, Camil, GEO, Real Distribuidora, Caseratto Food, Dolcci Empório, Zello e TESCAN."
+  etiqueta: Principais clientes
+  titulo: Quem já confiou a segurança da equipe na Segbem.
+  texto: Indústria, construção, logística, alimentação e varejo, com clientes em Goiás, Tocantins, Maranhão e Mato Grosso. Cada foto aqui é de uma turma de verdade, treinada dentro da empresa.
+  contadores:
+    - numero: 100
+      texto: empresas atendidas
+    - numero: 1000
+      texto: trabalhadores treinados
+  chamada:
+    titulo: Sua empresa aqui.
+    texto: Monte a turma da sua equipe com quem treina na prática. Orçamento pelo WhatsApp.
+  setores:
+    etiqueta: Setores
+    titulo: Cada setor tem seus riscos. A gente já conhece os do seu.
+    itens:
+      - icone: industria
+        nome: Indústria
+        texto: Máquinas, empilhadeira, inflamáveis e eletricidade.
+        normas: NR-12 · NR-11 · NR-20 · NR-10
+        rotulo: "Quem já atendemos:"
+        atendidos: Igel Embalagens, Camil
+      - icone: logistica
+        nome: Logística e distribuição
+        texto: Movimentação de carga, trabalho em altura e brigada.
+        normas: NR-11 · NR-35 · NR-23
+        rotulo: "Quem já atendemos:"
+        atendidos: GEO, Real Distribuidora
+      - icone: alimentacao
+        nome: Alimentação e varejo
+        texto: Brigada, rotas de fuga, higiene e conforto, calor em cozinha.
+        normas: NR-23 · NR-24 · Higiene ocupacional
+        rotulo: "Quem já atendemos:"
+        atendidos: Caseratto, Dolcci Empório
+      - icone: saude
+        nome: Saúde
+        texto: Riscos biológicos, brigada e programas obrigatórios.
+        normas: NR-32 · Brigada · PGR
+        rotulo: ""
+        atendidos: Hospitais, clínicas e laboratórios
+      - icone: educacao
+        nome: Educação
+        texto: Brigada, plano de abandono e primeiros socorros da Lei Lucas pra professores e funcionários.
+        normas: Brigada · Lei Lucas · PGR
+        rotulo: "Quem já atendemos:"
+        atendidos: Faculdade Inspirar
+      - icone: construcao
+        nome: Serviços e construção
+        texto: Obras de pavimentação, equipes em campo, EPI, altura e canteiro.
+        normas: NR-06 · NR-18 · NR-35
+        rotulo: "Quem já atendemos:"
+        atendidos: TESCAN, Zello
+pagina_cursos:
+  seo:
+    titulo: "Cursos de NR em Goiânia: NR-35, NR-33, NR-11, NR-10 e mais | Segbem"
+    descricao: "Treinamentos de NR em Goiânia e todo Goiás: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, Lei Lucas, plataforma elevatória, primeiros socorros e brigada. In company ou presencial."
+  etiqueta: Principais cursos
+  titulo: Treinamentos de NR em Goiânia e todo Goiás.
+  texto: Os principais cursos com carga horária, reciclagem e conteúdo. Não achou o seu? A gente realiza outros, é só chamar. Turmas in company, com a prática feita nos equipamentos da sua empresa, ou turmas presenciais.
+  brigada:
+    titulo: Brigada de emergência
+    texto: Básica 4h, intermediária 8h e avançada 24h. Credenciada junto ao Corpo de Bombeiros Militar de Goiás.
+    imagem: img/brigada.webp
+  nao_achou:
+    titulo: Não achou o seu curso?
+    texto: Esses são os principais. A Segbem realiza outros treinamentos de NR conforme a necessidade da sua empresa. Fala com a gente que a gente monta a turma.
+    botao: Consultar outro curso
+    mensagem: Olá, Segbem! Vim pelo site e procuro um curso que não achei na lista.
+  outros_titulo: Outros cursos que realizamos
+  outros_cursos:
+    - NR-01 Gerenciamento de riscos
+    - NR-06 EPI
+    - NR-17 Ergonomia
+    - NR-18 Construção civil
+    - NR-23 Combate a incêndio
+    - NR-24 Higiene e conforto
+    - NR-31 Trabalho rural
+    - NR-32 Serviços de saúde
+    - NR-36 Frigoríficos
+    - NR-16 Anexo V, motociclistas
+  nota: As cargas horárias informadas seguem o mínimo previsto em cada norma. A turma pode ter mais horas conforme a necessidade da empresa.
+  faq:
+    etiqueta: Dúvidas
+    titulo: Perguntas sobre os cursos.
+    texto: Não achou a sua? <a href="https://wa.me/{whatsapp}">Pergunta direto no WhatsApp</a>.
+    perguntas:
+      - pergunta: O certificado vale na fiscalização?
+        resposta: "Vale. O certificado sai com o que a norma pede: nome do trabalhador, conteúdo, carga horária, data, local, instrutor e assinatura do responsável técnico. Junto vão a lista de presença e o registro da parte prática."
+      - pergunta: Qual a diferença entre capacitado e autorizado?
+        resposta: Capacitado é quem fez o treinamento. Autorizado é quem, além de capacitado e apto no exame médico, recebeu autorização formal da empresa pra fazer aquela atividade. Em NRs como a 10, a 33 e a 35, o trabalhador só pode executar o serviço se estiver autorizado.
+      - pergunta: De quanto em quanto tempo precisa reciclar?
+        resposta: Depende da norma. A NR-35 pede reciclagem a cada 2 anos, a NR-10 também, e a NR-33 todo ano. Também precisa refazer quando muda o procedimento ou a função, ou quando o trabalhador fica afastado por mais de 90 dias. A gente avisa a empresa quando estiver chegando a hora.
+      - pergunta: Vocês fazem o treinamento dentro da minha empresa?
+        resposta: Sim. A maior parte das turmas é in company, com a parte prática feita nos equipamentos e no ambiente da própria empresa. Também organizamos turmas presenciais.
+      - pergunta: Tem número mínimo de pessoas pra turma in company?
+        resposta: Depende do curso e da logística. Chama no WhatsApp com o curso e a quantidade de pessoas que a gente monta a proposta certa pra você.
+      - pergunta: Atendem fora de Goiânia?
+        resposta: Sim. Temos clientes em Goiás, Tocantins, Maranhão e Mato Grosso. Pra outras regiões, fala com a gente que avaliamos.
+      - pergunta: Como funciona o orçamento?
+        resposta: É só chamar no WhatsApp ou usar o atendimento no canto da tela. Com o curso, a quantidade de pessoas e a cidade, a gente já consegue te passar uma proposta.
+pagina_curso:
+  etiqueta: Curso {codigo} em Goiânia e Goiás
+  complemento: Turma in company, com teoria e prática, ou turma presencial.
+  botao: Pedir orçamento deste curso
+  modalidade: In company ou turma presencial
+  certificado: Ao final, com lista de presença
+  publico_etiqueta: Pra quem é
+  publico_titulo: Quem precisa fazer
+  conteudo_etiqueta: Conteúdo
+  conteudo_titulo: O que a turma aprende
+  chamada_titulo: Monte a turma da sua equipe.
+  chamada_texto: Manda o curso, a quantidade de pessoas e a cidade que a gente responde com a proposta.
+  chamada_botao: Chamar no WhatsApp
+  outros_titulo: Outros cursos
+pagina_404:
+  titulo: Área isolada. Essa página não existe.
+  texto: O link pode estar errado ou a página mudou de lugar.
+  botao_inicio: Voltar pro início
+  botao_cursos: Ver cursos
+clientes:
+  - nome: TESCAN
+    logo: ""
+    altura_logo: 48
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Construtora de pavimentação
+    destaque: Assessoria em campo
+    foto: img/c_tescan.webp
+    foto_descricao: Técnico da Segbem com capacete e uniforme TESCAN em visita à obra
+    foto_ajuste: 25
+  - nome: Igel Embalagens
+    logo: img/clientes/igel.png
+    altura_logo: 60
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Indústria de embalagens
+    destaque: Treinamento in company
+    foto: img/c_igel.webp
+    foto_descricao: Turma da Igel Embalagens em frente ao caminhão da empresa
+  - nome: Camil
+    logo: img/clientes/camil.png
+    altura_logo: 44
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Indústria de alimentos
+    destaque: Treinamento in company
+    foto: img/c_camil.webp
+    foto_descricao: Turma da Camil reunida em sala de treinamento
+  - nome: GEO
+    logo: img/clientes/geo.png
+    altura_logo: 60
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Distribuição e logística
+    destaque: NR-11 Movimentação de cargas
+    foto: img/c_geo.webp
+    foto_descricao: Turma da GEO ao lado de paleteira elétrica e caminhão
+  - nome: Real Distribuidora
+    logo: img/clientes/real.png
+    altura_logo: 60
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Distribuição e logística
+    destaque: NR-35 Trabalho em altura
+    foto: img/c_real.webp
+    foto_descricao: Turma da Real Distribuidora em frente ao caminhão da empresa
+  - nome: Caseratto Food
+    logo: img/clientes/caseratto.png
+    altura_logo: 60
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Alimentação
+    destaque: Brigada e primeiros socorros
+    foto: img/c_caseratto.webp
+    foto_descricao: Equipe do Caseratto Food em frente à loja
+  - nome: Dolcci Empório
+    logo: img/clientes/dolcci.png
+    altura_logo: 52
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Varejo e alimentação
+    destaque: Brigada e rotas de fuga
+    foto: img/c_dolcci.webp
+    foto_descricao: Equipe do Dolcci Empório em frente à fachada da loja
+  - nome: Zello
+    logo: img/clientes/zello.png
+    altura_logo: 48
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Serviços
+    destaque: Equipe certificada
+    foto: img/c_zello.webp
+    foto_descricao: Equipe da Zello segurando certificados da Segbem
+    foto_ajuste: 30
+  - nome: Faculdade Inspirar
+    logo: img/clientes/inspirar.png
+    altura_logo: 60
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Educação
+    destaque: Atendimento Segbem
+    foto: ""
+    foto_descricao: ""
+depoimentos:
+  - nome: Larissa C.
+    estrelas: 5
+    origem: Avaliação no Google
+    texto: Excelente atendimento, sempre que preciso de algo relacionado a segurança do trabalho o Diego me atende prontamente. Equipe qualificada e atendimento rápido. Recomendo. Ótima experiência.
+  - nome: Weslley N.
+    estrelas: 5
+    origem: Avaliação no Google
+    texto: Ambiente top, instrutores capacitados e atendimento especializado. Super indico.
+  - nome: Karina K.
+    estrelas: 5
+    origem: Avaliação no Google
+    texto: Super recomendo, melhor assessoria de Goiânia, empresa de confiança, conta com bom atendimento, experiência em assessoria e profissionais qualificados.
+  - nome: Rainny E.
+    estrelas: 5
+    origem: Avaliação no Google
+    texto: Atendimento excelente e muito profissional. A Segbem entrega segurança, organização e confiança. Recomendo!
+  - nome: Lucas R.
+    estrelas: 5
+    origem: Avaliação no Google
+    texto: Excelente atendimento em consultoria na área segurança do trabalho.
+  - nome: Jonas C.
+    estrelas: 5
+    origem: Avaliação no Google
+    texto: Super indico, empresa de qualidade e responsabilidade com o que faz!
+cursos:
+  - codigo: NR-35
+    nome: Trabalho em altura
+    pagina: curso-nr-35
+    codigo_no_titulo: true
+    foto: img/nr35.webp
+    home: true
+    nome_curto: ""
+    resumo: Cinto paraquedista, ancoragem, checklist de EPI e resgate.
+    foto_descricao: Turma de trabalho em altura com cintos paraquedistas
+    descricao: Pra quem trabalha acima de 2 metros do nível inferior, onde existe risco de queda.
+    carga_horaria: 8 horas, teoria e prática
+    validade: A cada 2 anos, com 8 horas
+    observacao: Também precisa refazer quando muda o procedimento ou a empresa, depois de um acidente ou quando o trabalhador volta de afastamento maior que 90 dias.
+    publico:
+      - Equipes de manutenção, montagem e instalação
+      - Quem trabalha em telhado, estrutura, andaime, escada ou plataforma
+      - Logística, construção civil e indústria
+    conteudo:
+      - Normas e regulamentos do trabalho em altura
+      - Análise de risco e condições que impedem o trabalho
+      - Riscos do trabalho em altura e como prevenir
+      - "Proteção coletiva: sistemas, equipamentos e procedimentos"
+      - "EPI: escolha, inspeção, conservação e limites de uso"
+      - Acidentes típicos em altura
+      - Conduta em emergência, noções de resgate e primeiros socorros
+    pratica: Na prática, cada participante veste, ajusta e inspeciona o cinto paraquedista e usa os sistemas de ancoragem.
+  - codigo: NR-33
+    nome: Espaço confinado
+    pagina: curso-nr-33
+    codigo_no_titulo: true
+    foto: img/nr33.webp
+    home: true
+    nome_curto: ""
+    resumo: Medição de gases com detector multigás, sinalização e entrada segura.
+    foto_descricao: Boca de visita sendo avaliada antes de entrada em espaço confinado
+    descricao: Pra quem entra, vigia ou supervisiona trabalho em tanque, silo, galeria, poço, boca de visita e outros espaços confinados.
+    carga_horaria: 16 horas pra trabalhador autorizado e vigia, 40 horas pra supervisor de entrada
+    validade: Todo ano, com 8 horas
+    observacao: A capacitação também precisa ser refeita quando muda o procedimento ou depois de um acidente no espaço confinado.
+    publico:
+      - Trabalhador autorizado
+      - Vigia
+      - Supervisor de entrada
+    conteudo:
+      - Definição e identificação de espaços confinados
+      - Reconhecimento, avaliação e controle de riscos
+      - Funcionamento dos equipamentos, como o detector multigás
+      - Procedimentos e uso da Permissão de Entrada e Trabalho (PET)
+      - Noções de resgate e primeiros socorros
+    pratica: Na prática, a turma faz a medição de gases com detector multigás, a sinalização da área e simula a entrada com a PET preenchida.
+  - codigo: NR-11
+    nome: Empilhadeira e movimentação de carga
+    pagina: curso-nr-11
+    codigo_no_titulo: true
+    foto: img/nr11.webp
+    home: true
+    nome_curto: Empilhadeira e movimentação
+    resumo: Empilhadeira, retrátil, paleteira elétrica e minicarregadeira.
+    foto_descricao: Operadores de empilhadeira treinados ao lado da máquina
+    descricao: Pra operadores de empilhadeira, empilhadeira retrátil, paleteira elétrica e outros equipamentos de movimentação.
+    carga_horaria: Definida conforme o equipamento e a experiência da turma
+    validade: Cartão de operador com validade de 1 ano
+    observacao: Pela NR-11, o operador precisa de cartão de identificação, revalidado todo ano com exame de saúde.
+    publico:
+      - Operadores de empilhadeira e retrátil
+      - Operadores de paleteira elétrica
+      - Equipes de almoxarifado, expedição e centro de distribuição
+    conteudo:
+      - Tipos de equipamento e seus limites
+      - Inspeção antes do uso
+      - Capacidade de carga, centro de gravidade e estabilidade
+      - Circulação, sinalização e convivência com pedestres
+      - Abastecimento e troca de bateria ou cilindro de gás
+      - Prática de manobras
+    pratica: Na prática, o operador faz percurso entre cones, empilhamento e manobra com o equipamento da própria empresa.
+  - codigo: NR-10
+    nome: Segurança em eletricidade
+    pagina: curso-nr-10
+    codigo_no_titulo: true
+    foto: ""
+    home: false
+    nome_curto: ""
+    resumo: ""
+    foto_descricao: ""
+    descricao: Pra quem trabalha com instalações elétricas ou perto delas.
+    carga_horaria: 40 horas no curso básico, mais 40 horas no complementar SEP
+    validade: A cada 2 anos
+    observacao: Também precisa reciclar quando troca de função ou de empresa, volta de afastamento maior que 3 meses ou quando a instalação muda muito.
+    publico:
+      - Eletricistas e técnicos
+      - Equipes de manutenção
+      - Quem atua no sistema elétrico de potência (SEP), no curso complementar
+    conteudo:
+      - Riscos em instalações e serviços com eletricidade
+      - Técnicas de análise de risco
+      - Medidas de controle do risco elétrico
+      - Normas técnicas brasileiras
+      - EPC e EPI
+      - Rotinas de trabalho e procedimentos
+      - Documentação das instalações elétricas
+      - Proteção e combate a incêndio
+      - Acidentes de origem elétrica e primeiros socorros
+      - Responsabilidades
+    pratica: ""
+  - codigo: NR-12
+    nome: Segurança em máquinas e equipamentos
+    pagina: curso-nr-12
+    codigo_no_titulo: true
+    foto: ""
+    home: false
+    nome_curto: ""
+    resumo: ""
+    foto_descricao: ""
+    descricao: Pra quem opera, ajusta, limpa ou faz manutenção de máquinas e equipamentos.
+    carga_horaria: Definida conforme a máquina e a função
+    validade: Sempre que mudar a máquina, o método ou o processo
+    observacao: A capacitação é específica pra máquina que o trabalhador usa e precisa ser atualizada quando algo muda nela.
+    publico:
+      - Operadores de máquinas
+      - Equipes de manutenção e setup
+      - Supervisores de produção
+    conteudo:
+      - Descrição e funcionamento da máquina
+      - Riscos de cada etapa da operação
+      - Dispositivos e sistemas de segurança
+      - Procedimentos de trabalho seguro e bloqueio de energias
+      - Permissões e proibições
+      - Conduta em emergência
+    pratica: Na prática, o treinamento é feito na máquina que o trabalhador usa no dia a dia.
+  - codigo: NR-20
+    nome: Inflamáveis e combustíveis
+    pagina: curso-nr-20
+    codigo_no_titulo: true
+    foto: img/quimico.webp
+    home: true
+    nome_curto: Inflamáveis e produtos perigosos
+    resumo: Simulado de derrame em armazém de inflamáveis, contenção e EPI.
+    foto_descricao: Simulado de vazamento de produto químico com macacão e máscara
+    descricao: Pra quem trabalha em instalações que armazenam, transferem ou manuseiam inflamáveis e combustíveis.
+    carga_horaria: Definida pela classe da instalação e pela atividade do trabalhador
+    validade: Periódica, conforme o nível do curso
+    observacao: O nível do curso (iniciação, básico, intermediário ou avançado) depende do que o trabalhador faz na instalação.
+    publico:
+      - Equipes de armazém e expedição de inflamáveis
+      - Postos, indústria química e alimentícia
+      - Manutenção e brigada
+    conteudo:
+      - Características e riscos de inflamáveis e combustíveis
+      - Controle de fontes de ignição
+      - Proteção e combate a incêndio com inflamáveis
+      - Procedimentos em vazamento e derramamento
+      - Uso de EPI e kit de emergência
+    pratica: Na prática, a turma simula um derramamento em armazém de inflamáveis, com contenção e EPI completo.
+  - codigo: NR-05
+    nome: CIPA
+    pagina: curso-nr-05
+    codigo_no_titulo: true
+    foto: img/g2.webp
+    home: false
+    nome_curto: ""
+    resumo: ""
+    foto_descricao: ""
+    descricao: Pra membros da CIPA e pro designado de segurança da empresa.
+    carga_horaria: De 8 a 20 horas, conforme o grau de risco da empresa
+    validade: A cada mandato
+    observacao: A carga é de 8, 12, 16 ou 20 horas pros graus de risco 1, 2, 3 e 4.
+    publico:
+      - Membros eleitos e indicados da CIPA
+      - Designado da NR-05 em empresas sem CIPA
+    conteudo:
+      - Estudo do ambiente, das condições de trabalho e dos riscos
+      - Noções sobre acidentes e doenças do trabalho
+      - Metodologia de investigação e análise de acidentes
+      - Princípios de higiene do trabalho e medidas de prevenção
+      - Noções de legislação trabalhista e previdenciária em SST
+      - Prevenção ao assédio sexual e outras formas de violência no trabalho
+    pratica: ""
+  - codigo: PEMT
+    nome: Plataforma elevatória
+    pagina: curso-pemt
+    codigo_no_titulo: true
+    foto: img/pemt.webp
+    home: true
+    nome_curto: ""
+    resumo: Plataformas tipo tesoura e lança, operação e inspeção.
+    foto_descricao: Treinando operando plataforma elevatória de lança
+    descricao: Pra operadores de plataforma elevatória móvel de trabalho, tipo tesoura e lança.
+    carga_horaria: Definida conforme o tipo de plataforma
+    validade: Quando muda o equipamento ou o procedimento
+    observacao: O treinamento segue a NR-18 e a NR-12 e é feito no modelo de plataforma que a equipe usa.
+    publico:
+      - Operadores de plataforma tesoura e lança
+      - Equipes de manutenção predial e industrial
+      - Montagem e instalações
+    conteudo:
+      - Tipos de plataforma e aplicações
+      - Inspeção e checklist antes do uso
+      - Riscos de tombamento, queda, choque e prensamento
+      - Cinto e ponto de ancoragem na cesta
+      - Emergência e descida manual
+      - Prática de operação
+    pratica: Na prática, o operador faz a inspeção, sobe, posiciona e desce a plataforma com acompanhamento do instrutor.
+  - codigo: Socorro
+    nome: Primeiros socorros
+    pagina: curso-primeiros-socorros
+    codigo_no_titulo: false
+    foto: img/socorros.webp
+    home: true
+    nome_curto: ""
+    resumo: RCP em manequim, imobilização e transporte de vítima.
+    foto_descricao: Brigadista praticando massagem cardíaca em manequim
+    descricao: Pra brigadistas, líderes e qualquer equipe que precisa saber agir até o socorro chegar.
+    carga_horaria: Definida conforme a turma
+    validade: Recomendada todo ano
+    observacao: Combina bem com a formação de brigada de emergência.
+    publico:
+      - Brigadistas
+      - Líderes e supervisores
+      - Equipes que trabalham longe de atendimento médico
+    conteudo:
+      - Avaliação da cena e acionamento do socorro
+      - Reanimação cardiopulmonar (RCP)
+      - Engasgo
+      - Hemorragias, queimaduras e fraturas
+      - Imobilização e transporte de vítima
+    pratica: Na prática, a turma treina RCP em manequim, imobilização e transporte de vítima.
+  - codigo: Lei Lucas
+    nome: Primeiros socorros nas escolas
+    pagina: curso-lei-lucas
+    codigo_no_titulo: true
+    foto: img/leilucas.webp
+    home: true
+    nome_curto: ""
+    resumo: Capacitação anual de professores e funcionários, exigida pela Lei 13.722.
+    foto_descricao: Instrutor demonstrando curativo e imobilização em aula de primeiros socorros
+    descricao: Pra professores e funcionários de escolas e espaços de recreação infantil, como pede a Lei 13.722/2018.
+    carga_horaria: Definida conforme a turma
+    validade: Todo ano, como pede a lei
+    observacao: A Lei Lucas obriga escolas públicas e particulares de educação básica e estabelecimentos de recreação infantil a capacitar professores e funcionários em primeiros socorros todo ano.
+    publico:
+      - Professores e auxiliares de sala
+      - Funcionários de escolas, creches e berçários
+      - Equipes de buffets, brinquedotecas e espaços de recreação infantil
+    conteudo:
+      - Avaliação da cena e acionamento do SAMU e dos Bombeiros
+      - Engasgo em bebês e crianças
+      - Reanimação cardiopulmonar (RCP) infantil
+      - Convulsão e desmaio
+      - Quedas, fraturas e traumas na cabeça
+      - Hemorragias, queimaduras e intoxicações
+    pratica: Na prática, a equipe treina desengasgo e RCP em manequim, curativo e imobilização.

@@ -1,0 +1,17 @@
+<section id="faq" style="background: var(--alt);">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-wrap: wrap; gap: 48px;">
+<div style="flex: 1 1 300px; min-width: 0;">
+<div style="font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-ink); margin-bottom: 12px;">{{ home.faq.etiqueta }}</div>
+<h2 style="margin: 0 0 16px; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1;">{{ home.faq.titulo }}</h2>
+<p class="rt" style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted);">{{ home.faq.texto | rt }}</p>
+</div>
+<div style="flex: 2 1 560px; min-width: 0; border-top: 1px solid var(--line);">
+{{#each home.faq.perguntas as q}}
+<details class="faq-item" style="border-bottom: 1px solid var(--line);">
+<summary style="list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; font-size: 19px; font-weight: 700;">{{ q.pergunta }}<span class="faq-ic" aria-hidden="true"></span></summary>
+<p class="rt" style="margin: 0 0 22px; font-size: 17px; line-height: 1.65; color: var(--muted); max-width: 760px;">{{ q.resposta | rt }}</p>
+</details>
+{{/each}}
+</div>
+</div>
+</section>

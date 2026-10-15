@@ -2,13 +2,13 @@
 :root{
   color-scheme:light;
   --surface:#ffffff;--alt:#f4f6f1;--ink:#14201a;--ink2:#2d3a31;--muted:#4c5a50;
-  --brand-ink:#17752f;--line:#dfe5db;--tag-bg:#e6f1e7;--tag-ink:#0d3b24;--num:#c8d4c6;
+  --brand-ink:var(--c-principal);--line:#dfe5db;--tag-bg:var(--c-tag-bg);--tag-ink:var(--c-escura);--num:#c8d4c6;
   --hdr:rgba(255,255,255,.96);--shadow:rgba(13,59,36,.14);
 }
 :root[data-theme="dark"]{
   color-scheme:dark;
   --surface:#141d17;--alt:#0e1511;--ink:#e6ede7;--ink2:#cfd9d1;--muted:#a3b2a7;
-  --brand-ink:#5fcf7c;--line:#26332b;--tag-bg:#1d3a27;--tag-ink:#bfe8c8;--num:#34463a;
+  --brand-ink:var(--c-principal-claro);--line:#26332b;--tag-bg:var(--c-tag-bg-escuro);--tag-ink:var(--c-tag-ink-escuro);--num:#34463a;
   --hdr:rgba(14,21,17,.92);--shadow:rgba(0,0,0,.45);
 }
 body{background:var(--surface);color:var(--ink);transition:background-color .3s ease,color .3s ease}

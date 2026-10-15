@@ -116,17 +116,23 @@
 
   // Botões principais: efeito de hover com bolinha que preenche e texto com seta
   var ARROW = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  // Cor de destaque da marca (vem do CMS), pra saber se o botão é o amarelo
+  var probe = document.createElement('span');
+  probe.style.backgroundColor = 'var(--c-destaque)';
+  document.body.appendChild(probe);
+  var destaqueRgb = getComputedStyle(probe).backgroundColor;
+  probe.remove();
   document.querySelectorAll('a.btn-main:not(.wa), .sb-send-wa').forEach(function (b) {
     if (b.classList.contains('ihb')) return;
     var label = b.textContent.replace(/\s+/g, ' ').replace(/\s*→\s*$/, '').trim();
     if (!label) return;
     var bg = getComputedStyle(b).backgroundColor;
     var fg = getComputedStyle(b).color;
-    var yellow = /242,\s*194,\s*0/.test(bg);
+    var yellow = bg === destaqueRgb;
     b.style.setProperty('--ihb-bg', bg);
     b.style.setProperty('--ihb-fg', fg);
-    b.style.setProperty('--ihb-dot', yellow ? '#0d3b24' : '#f2c200');
-    b.style.setProperty('--ihb-hover-fg', yellow ? '#ffffff' : '#14201a');
+    b.style.setProperty('--ihb-dot', yellow ? 'var(--c-escura)' : 'var(--c-destaque)');
+    b.style.setProperty('--ihb-hover-fg', yellow ? '#ffffff' : 'var(--c-destaque-txt)');
     var inner = document.createElement('span');
     inner.className = 'ihb-label';
     while (b.firstChild) inner.appendChild(b.firstChild);

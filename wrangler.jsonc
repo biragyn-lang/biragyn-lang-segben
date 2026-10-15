@@ -2,11 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "biragyn-lang-segben",
   "compatibility_date": "2026-10-01",
-  // Monta o site em dist/ a partir de content/site.json antes de publicar.
+  // Monta o site em dist/ a partir de content/site.yml antes de publicar.
   // Roda sozinho no "wrangler deploy" (inclusive no deploy automático pelo GitHub) e no "wrangler dev".
+  // O npm install garante a biblioteca yaml; quando ela já está instalada, leva menos de 1 segundo.
   "build": {
-    "command": "node tools/build.mjs",
-    "watch_dir": ["src", "content", "public"]
+    "command": "npm install --no-audit --no-fund --loglevel=error && node tools/build.mjs",
+    "watch_dir": ["src", "content", "public", "tools"]
   },
   "assets": {
     "directory": "./dist",

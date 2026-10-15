@@ -1,0 +1,60 @@
+<section id="servicos"{{ calc.v.assessoria | raw }} style="background: var(--surface);">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 48px;">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+<div style="flex: 1 1 520px; min-width: 0;">
+<div style="font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-ink); margin-bottom: 12px;">{{ home.assessoria.etiqueta }}</div>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1; text-transform: uppercase;">{{ home.assessoria.titulo }}</h2>
+</div>
+<p class="rt" style="flex: 1 1 360px; min-width: 0; margin: 0; font-size: 18px; line-height: 1.6; color: var(--muted);">{{ home.assessoria.texto | rt }}</p>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div class="card" style="flex: 2 1 520px; min-width: 0; display: flex; flex-wrap: wrap; background: var(--c-escura); color: #ffffff; border-radius: 10px; overflow: hidden;">
+<div style="flex: 1 1 260px; min-height: 300px; overflow: hidden;"><img class="card-img" src="{{ home.assessoria.destaque.imagem | img }}" alt="{{ home.assessoria.destaque.imagem_descricao }}" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+<div style="flex: 1 1 260px; padding: 32px; display: flex; flex-direction: column; gap: 14px; justify-content: center;">
+<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-destaque);">{{ home.assessoria.destaque.etiqueta }}</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 34px; line-height: 1.05; text-transform: uppercase;">{{ home.assessoria.destaque.titulo }}</h3>
+<p class="rt" style="margin: 0; font-size: 16px; line-height: 1.6; color: #d5e4d8;">{{ home.assessoria.destaque.texto | rt }}</p>
+</div>
+</div>
+<div style="flex: 1 1 280px; min-width: 0; display: flex; flex-direction: column; gap: 20px;">
+{{#each home.assessoria.cards as card}}
+<div style="background: var(--alt); border-radius: 10px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; text-transform: uppercase;">{{ card.titulo }}</h3>
+<p class="rt" style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted);">{{ card.texto | rt }}</p>
+</div>
+{{/each}}
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+<div style="flex: 2 1 520px; min-width: 0; background: var(--alt); border-left: 6px solid var(--c-destaque); border-radius: 10px; padding: 30px 32px; display: flex; flex-direction: column; gap: 10px;">
+<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-ink);">{{ home.assessoria.destaque_2.etiqueta }}</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: 34px; line-height: 1.05; text-transform: uppercase;">{{ home.assessoria.destaque_2.titulo }}</h3>
+<p class="rt" style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--muted);">{{ home.assessoria.destaque_2.texto | rt }}</p>
+</div>
+{{#each home.assessoria.cards_2 as card}}
+<div style="flex: 1 1 280px; min-width: 0; background: var(--alt); border-radius: 10px; padding: 26px 28px; display: flex; flex-direction: column; gap: 8px;">
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 26px; text-transform: uppercase;">{{ card.titulo }}</h3>
+<p class="rt" style="margin: 0; font-size: 16px; line-height: 1.55; color: var(--muted);">{{ card.texto | rt }}</p>
+</div>
+{{/each}}
+</div>
+{{#if home.assessoria.plano.mostrar}}
+<div id="plano-mensal" class="plano" style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center; background: #14201a; color: #ffffff; border-radius: 14px; padding: 44px 40px; position: relative; overflow: hidden;">
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 16px;">
+<div style="font-weight: 700; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c-destaque);">{{ home.assessoria.plano.etiqueta }}</div>
+<h3 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(32px, 3.6vw, 44px); line-height: 1.02;">{{ home.assessoria.plano.titulo }}</h3>
+<p class="rt" style="margin: 0; font-size: 17px; line-height: 1.6; color: #c9d3cb;">{{ home.assessoria.plano.texto | rt }}</p>
+<a class="btn-main" href="{{ home.assessoria.plano.mensagem | wa }}" style="align-self: flex-start; background: var(--c-destaque); color: var(--c-destaque-txt); text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 6px;">{{ home.assessoria.plano.botao }}</a>
+</div>
+<div style="flex: 1 1 340px; min-width: 0;">
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+{{#each home.assessoria.plano.itens as item}}
+<li style="display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 1.45;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="color: var(--c-destaque); flex: none; margin-top: 2px;"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg><span>{{ item }}</span></li>
+{{/each}}
+</ul>
+<p style="margin: 18px 0 0; font-size: 14px; color: #9fb0a4;">{{ home.assessoria.plano.observacao }}</p>
+</div>
+</div>
+{{/if}}
+</div>
+</section>

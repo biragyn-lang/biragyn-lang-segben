@@ -1,0 +1,20 @@
+<section id="treinamentos"{{ calc.v.treinamentos | raw }} style="background: var(--alt);">
+<div style="max-width: 1240px; margin: 0 auto; padding: 96px 24px; display: flex; flex-direction: column; gap: 40px;">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px;">
+<div style="flex: 1 1 520px; min-width: 0;">
+<div style="font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-ink); margin-bottom: 12px;">{{ home.treinamentos.etiqueta }}</div>
+<h2 style="margin: 0; font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(36px, 4.5vw, 54px); line-height: 1; text-transform: uppercase;">{{ home.treinamentos.titulo }}</h2>
+</div>
+<div class="chips" style="flex: 0 1 auto; display: flex; flex-wrap: wrap; gap: 8px;">
+{{#each home.treinamentos.selos as selo}}
+<span style="background: var(--surface); border: 1px solid var(--line); padding: 8px 14px; border-radius: 999px; font-weight: 600; font-size: 14px;">{{ selo }}</span>
+{{/each}}
+</div>
+</div>
+<div class="tcards" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 20px;">
+{{ calc.cards_cursos | raw }}
+</div>
+<a class="btn-main" href="cursos.html" style="align-self: flex-start; background: var(--c-principal); color: var(--c-principal-txt); text-decoration: none; font-weight: 700; font-size: 17px; padding: 16px 26px; border-radius: 6px;">{{ home.treinamentos.botao }}</a>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; color: var(--muted);">{{ home.treinamentos.nao_achou }} <a href="{{ home.treinamentos.nao_achou_mensagem | wa }}" style="font-weight: 700;">{{ home.treinamentos.nao_achou_link }}</a>.</p>
+</div>
+</section>
