@@ -16,5 +16,5 @@ logo=Image.open(P+'logo-dark.png').convert('RGBA'); logo.thumbnail((330,200)); i
 d=ImageDraw.Draw(img)
 f1=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf',54); f2=ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf',28)
 d.text((60,300),'Segurança do trabalho',font=f1,fill=(255,255,255)); d.text((60,365),'e treinamentos de NR',font=f1,fill=(255,255,255))
-d.text((60,450),'Goiânia e todo Goiás · Orçamento pelo WhatsApp',font=f2,fill=(242,194,0))
+d.text((60,450),'GO · TO · MA · MT · Orçamento pelo WhatsApp',font=f2,fill=(242,194,0))
 img.convert('RGB').save(P+'og.jpg','JPEG',quality=84,optimize=True)

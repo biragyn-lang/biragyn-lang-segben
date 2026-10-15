@@ -146,7 +146,7 @@ home:
 pagina_clientes:
   seo:
     titulo: Clientes | Segbem Segurança do Trabalho
-    descricao: "Empresas que já treinaram suas equipes com a Segbem: Igel Embalagens, Camil, GEO, Real Distribuidora, Caseratto Food, Dolcci Empório, Zello e TESCAN."
+    descricao: "Empresas que já treinaram suas equipes com a Segbem: Igel Embalagens, Camil, GEO, Real Distribuidora, Caseratto Food, Dolcci Empório, Zello, TESCAN, Nova Casa Distribuidora, Leinertex e Faculdade Inspirar."
   etiqueta: Principais clientes
   titulo: Quem já confiou a segurança da equipe na Segbem.
   texto: Indústria, construção, logística, alimentação e varejo, com clientes em Goiás, Tocantins, Maranhão e Mato Grosso. Cada foto aqui é de uma turma de verdade, treinada dentro da empresa.
@@ -167,13 +167,13 @@ pagina_clientes:
         texto: Máquinas, empilhadeira, inflamáveis e eletricidade.
         normas: NR-12 · NR-11 · NR-20 · NR-10
         rotulo: "Quem já atendemos:"
-        atendidos: Igel Embalagens, Camil
+        atendidos: Igel Embalagens, Camil, Leinertex
       - icone: logistica
         nome: Logística e distribuição
         texto: Movimentação de carga, trabalho em altura e brigada.
         normas: NR-11 · NR-35 · NR-23
         rotulo: "Quem já atendemos:"
-        atendidos: GEO, Real Distribuidora
+        atendidos: GEO, Real Distribuidora, Nova Casa
       - icone: alimentacao
         nome: Alimentação e varejo
         texto: Brigada, rotas de fuga, higiene e conforto, calor em cozinha.
@@ -201,9 +201,9 @@ pagina_clientes:
 pagina_cursos:
   seo:
     titulo: "Cursos de NR em Goiânia: NR-35, NR-33, NR-11, NR-10 e mais | Segbem"
-    descricao: "Treinamentos de NR em Goiânia e todo Goiás: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, Lei Lucas, plataforma elevatória, primeiros socorros e brigada. In company ou presencial."
+    descricao: "Treinamentos de NR em Goiás, Tocantins, Maranhão e Mato Grosso: NR-35, NR-33, NR-11, NR-10, NR-12, NR-20, CIPA, Lei Lucas, plataforma elevatória, primeiros socorros e brigada. In company ou presencial."
   etiqueta: Principais cursos
-  titulo: Treinamentos de NR em Goiânia e todo Goiás.
+  titulo: Treinamentos de NR em Goiás, Tocantins, Maranhão e Mato Grosso.
   texto: Os principais cursos com carga horária, reciclagem e conteúdo. Não achou o seu? A gente realiza outros, é só chamar. Turmas in company, com a prática feita nos equipamentos da sua empresa, ou turmas presenciais.
   brigada:
     titulo: Brigada de emergência
@@ -267,18 +267,32 @@ pagina_404:
   botao_cursos: Ver cursos
 clientes:
   - nome: TESCAN
-    logo: ""
-    altura_logo: 48
+    logo: img/clientes/tescan.png
     faixa_home: true
     pagina_clientes: true
     segmento: Construtora de pavimentação
-    destaque: Assessoria em campo
+    destaque: DSS de riscos psicossociais · TO
     foto: img/c_tescan.webp
-    foto_descricao: Técnico da Segbem com capacete e uniforme TESCAN em visita à obra
-    foto_ajuste: 25
+    foto_descricao: Instrutor da Segbem conduzindo DSS sobre riscos psicossociais e assédio com a equipe da obra da TESCAN no Tocantins
+    foto_ajuste_horizontal: 60
+  - nome: Nova Casa Distribuidora
+    logo: img/clientes/novacasa.png
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Distribuição
+    destaque: Brigada de incêndio
+    foto: img/c_novacasa.webp
+    foto_descricao: Turma da Nova Casa Distribuidora com extintores e mangueiras após o treinamento de brigada
+  - nome: Leinertex
+    logo: img/clientes/leinertex.png
+    faixa_home: true
+    pagina_clientes: true
+    segmento: Indústria de tintas
+    destaque: Treinamento in company
+    foto: img/c_leinertex.webp
+    foto_descricao: Equipe da Leinertex em frente ao painel da empresa
   - nome: Igel Embalagens
     logo: img/clientes/igel.png
-    altura_logo: 60
     faixa_home: true
     pagina_clientes: true
     segmento: Indústria de embalagens
@@ -287,7 +301,6 @@ clientes:
     foto_descricao: Turma da Igel Embalagens em frente ao caminhão da empresa
   - nome: Camil
     logo: img/clientes/camil.png
-    altura_logo: 44
     faixa_home: true
     pagina_clientes: true
     segmento: Indústria de alimentos
@@ -296,7 +309,6 @@ clientes:
     foto_descricao: Turma da Camil reunida em sala de treinamento
   - nome: GEO
     logo: img/clientes/geo.png
-    altura_logo: 60
     faixa_home: true
     pagina_clientes: true
     segmento: Distribuição e logística
@@ -305,7 +317,6 @@ clientes:
     foto_descricao: Turma da GEO ao lado de paleteira elétrica e caminhão
   - nome: Real Distribuidora
     logo: img/clientes/real.png
-    altura_logo: 60
     faixa_home: true
     pagina_clientes: true
     segmento: Distribuição e logística
@@ -314,7 +325,6 @@ clientes:
     foto_descricao: Turma da Real Distribuidora em frente ao caminhão da empresa
   - nome: Caseratto Food
     logo: img/clientes/caseratto.png
-    altura_logo: 60
     faixa_home: true
     pagina_clientes: true
     segmento: Alimentação
@@ -323,7 +333,6 @@ clientes:
     foto_descricao: Equipe do Caseratto Food em frente à loja
   - nome: Dolcci Empório
     logo: img/clientes/dolcci.png
-    altura_logo: 52
     faixa_home: true
     pagina_clientes: true
     segmento: Varejo e alimentação
@@ -332,7 +341,6 @@ clientes:
     foto_descricao: Equipe do Dolcci Empório em frente à fachada da loja
   - nome: Zello
     logo: img/clientes/zello.png
-    altura_logo: 48
     faixa_home: true
     pagina_clientes: true
     segmento: Serviços
@@ -342,13 +350,12 @@ clientes:
     foto_ajuste: 30
   - nome: Faculdade Inspirar
     logo: img/clientes/inspirar.png
-    altura_logo: 60
     faixa_home: true
     pagina_clientes: true
     segmento: Educação
-    destaque: Atendimento Segbem
-    foto: ""
-    foto_descricao: ""
+    destaque: Turma certificada
+    foto: img/c_inspirar.webp
+    foto_descricao: Turma segurando certificados da Segbem na escadaria da Faculdade Inspirar
 depoimentos:
   - nome: Larissa C.
     estrelas: 5

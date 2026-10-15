@@ -550,12 +550,6 @@ content:
             options:
               media: midia
               path: public/img/clientes
-          - name: altura_logo
-            label: Altura do logo na faixa (px)
-            type: number
-            default: 60
-            description: "Entre 40 e 60 costuma ficar bom."
-            options: { min: 30, max: 80 }
           - { name: faixa_home, label: Mostrar na faixa de logos da página inicial, type: boolean, default: true }
           - { name: pagina_clientes, label: Mostrar na página Clientes, type: boolean, default: true }
           - { name: segmento, label: Segmento, type: string, description: "Ex.: Indústria de alimentos" }
@@ -566,6 +560,11 @@ content:
             label: Ajuste vertical da foto (%)
             type: number
             description: "Deixe vazio pra centralizar. Use um número menor (ex.: 25) se a foto cortar a cabeça das pessoas."
+            options: { min: 0, max: 100 }
+          - name: foto_ajuste_horizontal
+            label: Ajuste horizontal da foto (%)
+            type: number
+            description: "Deixe vazio pra centralizar. 0 mostra mais o lado esquerdo da foto, 100 o direito."
             options: { min: 0, max: 100 }
 
       # ============================================================ depoimentos

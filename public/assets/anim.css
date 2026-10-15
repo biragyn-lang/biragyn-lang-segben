@@ -27,7 +27,7 @@ html,body{overflow-x:clip}
 
 /* Letreiro de clientes */
 .marquee{flex:1 1 100%;order:3;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-track{display:flex;width:max-content;gap:56px;animation:marquee 32s linear infinite}
+.marquee-track{display:flex;width:max-content;gap:56px;animation:marquee 60s linear infinite}
 .marquee-track>span{white-space:nowrap}
 .marquee:hover .marquee-track{animation-play-state:paused}
 @keyframes marquee{to{transform:translateX(calc(-50% - 28px))}}
@@ -66,8 +66,9 @@ html,body{overflow-x:clip}
 
 /* Logos dos clientes no letreiro (cai pro nome se o arquivo não existir) */
 .marquee-track{align-items:center}
-.cl{display:inline-flex;align-items:center;justify-content:center;height:76px;padding:8px 18px;border-radius:10px;transition:background .3s ease}
-.cl img{width:auto;max-width:200px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .3s ease,opacity .3s ease}
+.cl{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:200px;height:84px;padding:12px 20px;border-radius:10px;transition:background .3s ease}
+.cl img{width:100%;height:100%!important;max-width:none;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .3s ease,opacity .3s ease}
+@media (max-width:600px){.cl{width:150px;height:68px;padding:10px 14px}}
 .cl:hover img{filter:none;opacity:1}
 .cl b{display:none;font-weight:700}
 .cl.nologo b{display:inline}

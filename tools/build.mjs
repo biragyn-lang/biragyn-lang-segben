@@ -201,14 +201,16 @@ const CLIENTES = lista(DATA.clientes).map((c, i) => {
 
 const LOGOS = CLIENTES.filter(c => c.faixa_home !== false).map(c => {
   if (!c.logo) return `<span class="cl nologo"><b>${esc(c.nome)}</b></span>`;
-  const h = +c.altura_logo || 60;
-  return `<span class="cl"><img src="${esc(c.logo)}" alt="${esc(c.nome)}" height="${h}" style="height: ${h}px" onerror="this.parentNode.classList.add('nologo');this.remove()"><b>${esc(c.nome)}</b></span>`;
+  // o tamanho real vem do anim.css (caixa fixa, logo encaixado); a altura aqui só reserva espaço até o CSS carregar
+  return `<span class="cl"><img src="${esc(c.logo)}" alt="${esc(c.nome)}" height="60" style="height: 60px" onerror="this.parentNode.classList.add('nologo');this.remove()"><b>${esc(c.nome)}</b></span>`;
 }).join('');
 
 const CARDS_CLIENTES = CLIENTES.filter(c => c.pagina_clientes !== false).map(c => {
   let top;
   if (c.foto) {
-    const pos = c.foto_ajuste !== undefined && c.foto_ajuste !== null && c.foto_ajuste !== '' ? ` object-position: center ${+c.foto_ajuste}%;` : '';
+    const temNum = v => v !== undefined && v !== null && v !== '' && !isNaN(+v);
+    const [h, v] = [c.foto_ajuste_horizontal, c.foto_ajuste].map(x => temNum(x) ? `${+x}%` : 'center');
+    const pos = h === 'center' && v === 'center' ? '' : ` object-position: ${h} ${v};`;
     top = `<div style="height: 260px; overflow: hidden;"><img class="card-img" src="${esc(c.foto)}" alt="${esc(c.foto_descricao || 'Turma da ' + c.nome)}" style="width: 100%; height: 100%; object-fit: cover;${pos} display: block;"></div>`;
   } else if (c.logo) {
     top = `<div style="height: 260px; overflow: hidden; background: #eef2ee; display: flex; align-items: center; justify-content: center;"><img class="card-img" src="${esc(c.logo)}" alt="Logo da ${esc(c.nome)}" style="height: 150px; width: auto; display: block;"></div>`;
