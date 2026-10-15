@@ -1,0 +1,285 @@
+# Configuração do Pages CMS (https://pagescms.org)
+# Tudo que dá pra editar pelo painel fica em content/site.json.
+# Ao salvar, o Pages CMS faz um commit no GitHub e o deploy automático da Cloudflare
+# roda o build (node tools/build.mjs) e publica o site em 1 ou 2 minutos.
+
+media:
+  - name: logos
+    label: Logos dos clientes
+    input: public/img/clientes
+    output: img/clientes
+    categories: [image]
+  - name: fotos
+    label: Fotos do site
+    input: public/img
+    output: img
+    categories: [image]
+
+content:
+  - name: site
+    label: Conteúdo do site
+    type: file
+    path: content/site.json
+    format: json
+    fields:
+
+      # ------------------------------------------------------------ contato
+      - name: contato
+        label: Contato
+        type: object
+        fields:
+          - name: whatsapp
+            label: WhatsApp / telefone
+            type: string
+            required: true
+            description: "Com DDD, do jeito que aparece no site. Ex.: (62) 99212-5850. Todos os botões de WhatsApp e o atendimento do canto da tela usam este número."
+            pattern:
+              regex: "^\\(\\d{2}\\) \\d{4,5}-\\d{4}$"
+              message: "Use o formato (62) 99212-5850"
+          - name: email
+            label: E-mail
+            type: string
+            required: true
+            pattern:
+              regex: "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+              message: "Digite um e-mail válido"
+          - name: instagram
+            label: Instagram
+            type: string
+            description: "Só o nome de usuário, sem o @. Ex.: segbem.sst"
+          - name: google
+            label: Link do Google
+            type: string
+            description: "Link da empresa no Google. É usado no selo \"5,0 no Google\", em \"Ver no Google\" e em \"Como chegar\"."
+          - name: endereco
+            label: Endereço
+            type: string
+            required: true
+            description: "Rua, número, quadra, lote, sala e setor. Ex.: Av. Anhanguera, 2987, Qd. 38 Lt. 96, Sala 911, Setor Central"
+          - name: cidade
+            label: Cidade
+            type: string
+            required: true
+          - name: uf
+            label: Estado (sigla)
+            type: string
+            required: true
+            pattern:
+              regex: "^[A-Z]{2}$"
+              message: "Use a sigla com 2 letras maiúsculas, ex.: GO"
+          - name: cep
+            label: CEP
+            type: string
+            required: true
+            pattern:
+              regex: "^\\d{5}-\\d{3}$"
+              message: "Use o formato 74043-011"
+          - name: cnpj
+            label: CNPJ
+            type: string
+
+      # ------------------------------------------------------------ contadores
+      - name: contadores
+        label: Números da página Clientes
+        description: "Os números grandes que contam sozinhos no topo da página Clientes."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "+{numero} {texto}"
+        fields:
+          - name: numero
+            label: Número
+            type: number
+            required: true
+            description: "Só o número, sem ponto e sem +. Ex.: 1000 aparece no site como +1.000."
+            options:
+              min: 0
+          - name: texto
+            label: Texto embaixo do número
+            type: string
+            required: true
+            description: "Ex.: empresas atendidas"
+
+      # ------------------------------------------------------------ clientes
+      - name: clientes
+        label: Clientes
+        description: "Aparecem na faixa de logos da home e nos cards da página Clientes, nesta ordem. Arraste pra mudar a ordem."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome}"
+        fields:
+          - name: nome
+            label: Nome da empresa
+            type: string
+            required: true
+          - name: logo
+            label: Logo
+            type: image
+            description: "PNG com fundo transparente fica melhor. Sem logo, a faixa da home mostra o nome da empresa."
+            options:
+              media: logos
+          - name: altura_logo
+            label: Altura do logo na faixa (px)
+            type: number
+            description: "Entre 40 e 60 costuma ficar bom. Diminua se o logo parecer grande demais perto dos outros."
+            default: 60
+            options:
+              min: 30
+              max: 80
+          - name: faixa_home
+            label: Mostrar na faixa de logos da home
+            type: boolean
+            default: true
+          - name: pagina_clientes
+            label: Mostrar na página Clientes
+            type: boolean
+            default: true
+          - name: segmento
+            label: Segmento
+            type: string
+            description: "Texto pequeno acima do nome no card. Ex.: Indústria de alimentos"
+          - name: destaque
+            label: Etiqueta do card
+            type: string
+            description: "O que a Segbem fez lá. Ex.: Treinamento in company, NR-35 Trabalho em altura"
+          - name: foto
+            label: Foto da turma
+            type: image
+            description: "Foto do card na página Clientes. Sem foto, o card mostra o logo."
+            options:
+              media: fotos
+          - name: foto_descricao
+            label: Descrição da foto
+            type: string
+            description: "O que aparece na foto, pra quem usa leitor de tela e pro Google. Ex.: Turma da Camil reunida em sala de treinamento"
+          - name: foto_ajuste
+            label: Ajuste vertical da foto (%)
+            type: number
+            description: "Deixe vazio pra centralizar. Use um número menor (ex.: 25) se a foto estiver cortando a cabeça das pessoas."
+            options:
+              min: 0
+              max: 100
+
+      # ------------------------------------------------------------ depoimentos
+      - name: depoimentos
+        label: Depoimentos
+        description: "Avaliações que sobem em colunas na home. Vão sendo distribuídos nas 3 colunas na ordem da lista."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{nome}"
+        fields:
+          - name: nome
+            label: Nome
+            type: string
+            required: true
+            description: "Nome e inicial do sobrenome. Ex.: Larissa C. As iniciais do círculo saem daqui."
+          - name: texto
+            label: Depoimento
+            type: text
+            required: true
+          - name: estrelas
+            label: Estrelas
+            type: number
+            default: 5
+            options:
+              min: 1
+              max: 5
+          - name: origem
+            label: Origem
+            type: string
+            default: Avaliação no Google
+            description: "Se tiver \"Google\" no texto, aparece o ícone do Google."
+
+      # ------------------------------------------------------------ cursos
+      - name: cursos
+        label: Cursos
+        description: "Cada curso ganha uma página própria e um card na página Cursos, nesta ordem."
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{codigo} {nome}"
+        fields:
+          - name: codigo
+            label: Código
+            type: string
+            required: true
+            description: "Ex.: NR-35, PEMT, Lei Lucas"
+          - name: nome
+            label: Nome do curso
+            type: string
+            required: true
+          - name: descricao
+            label: Descrição
+            type: text
+            required: true
+            description: "Pra quem é o curso. Aparece no topo da página do curso. Ex.: Pra quem trabalha acima de 2 metros..."
+          - name: carga_horaria
+            label: Carga horária
+            type: string
+            required: true
+            description: "Ex.: 8 horas, teoria e prática"
+          - name: validade
+            label: Validade / reciclagem
+            type: string
+            required: true
+            description: "Ex.: A cada 2 anos, com 8 horas"
+          - name: observacao
+            label: Observação sobre a reciclagem
+            type: text
+            description: "Texto pequeno embaixo dos quadros de carga horária e reciclagem."
+          - name: publico
+            label: Quem precisa fazer
+            type: string
+            list: true
+          - name: conteudo
+            label: O que a turma aprende
+            type: string
+            list: true
+          - name: pratica
+            label: Como é a parte prática
+            type: text
+          - name: foto
+            label: Foto
+            type: image
+            description: "Sem foto, a página mostra o código do curso em amarelo sobre fundo escuro."
+            options:
+              media: fotos
+          - name: home
+            label: Mostrar nos principais treinamentos da home
+            type: boolean
+            default: false
+          - name: nome_curto
+            label: Nome no card da home
+            type: string
+            description: "Opcional. Se ficar vazio, usa o nome do curso."
+          - name: resumo
+            label: Resumo no card da home
+            type: string
+            description: "Uma frase curta. Ex.: Cinto paraquedista, ancoragem, checklist de EPI e resgate."
+          - name: foto_descricao
+            label: Descrição da foto no card da home
+            type: string
+          - name: pagina
+            label: Endereço da página
+            type: string
+            description: "Não mude depois de publicado, senão os links antigos quebram. Se ficar vazio, é criado a partir do código (ex.: curso-nr-35)."
+            pattern:
+              regex: "^([a-z0-9]+(-[a-z0-9]+)*)?$"
+              message: "Só letras minúsculas, números e hífen. Ex.: curso-nr-35"
+          - name: codigo_no_titulo
+            label: Mostrar o código no título da página
+            type: boolean
+            default: true
+            description: "Desmarque quando o código não for uma sigla (ex.: no curso de Primeiros socorros)."
+
+      - name: outros_cursos
+        label: Outros cursos que realizamos
+        description: "Botões menores no fim da página Cursos. Cada um abre o WhatsApp já com o nome do curso."
+        type: string
+        list: true

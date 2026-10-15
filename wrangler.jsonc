@@ -2,8 +2,14 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "biragyn-lang-segben",
   "compatibility_date": "2026-10-01",
+  // Monta o site em dist/ a partir de content/site.json antes de publicar.
+  // Roda sozinho no "wrangler deploy" (inclusive no deploy automático pelo GitHub) e no "wrangler dev".
+  "build": {
+    "command": "node tools/build.mjs",
+    "watch_dir": ["src", "content", "public"]
+  },
   "assets": {
-    "directory": "./public",
+    "directory": "./dist",
     "not_found_handling": "404-page"
   }
 }

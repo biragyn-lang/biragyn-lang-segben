@@ -1,0 +1,12 @@
+{
+  "name": "biragyn-lang-segben",
+  "private": true,
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "dev": "npx wrangler dev",
+    "deploy": "npx wrangler deploy"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

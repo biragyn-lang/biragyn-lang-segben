@@ -1,31 +1,44 @@
 (Nome correto da empresa: Segbem)
-SEGBEN - site estático (Cloudflare Pages)
+SEGBEN - site estático (Cloudflare Workers, só assets)
 
-Pasta "public" = o que vai pro ar (index.html, clientes.html, img/, _headers). O wrangler.jsonc aponta pra ela, assim .git e README não são publicados.
+## Como o site é montado
+- `content/site.json`: o que o cliente edita (contato, contadores, clientes, depoimentos, cursos).
+  Editado pelo Pages CMS (https://pagescms.org), configurado em `.pages.yml`.
+- `src/`: modelos da home, da página de clientes e do chat, com marcadores `{{ ... }}` preenchidos com o site.json.
+- `public/`: arquivos copiados como estão (img/, assets/, video/, _headers).
+- `tools/build.mjs`: junta tudo em `dist/` e gera as páginas de curso, cursos.html, 404.html, sitemap.xml e robots.txt.
+  Sem dependências, só Node 18+. Rodar: `node tools/build.mjs` (ou `npm run build`).
 
-Opção 1, painel (sem instalar nada)
-  Cloudflare > Workers & Pages > Create > Pages > Upload assets
-  Nome do projeto: segben  >  arrasta a pasta public  >  Deploy
-  Sai em https://segben.pages.dev
-  Domínio: no projeto > Custom domains > Set up a domain > segben.com.br (e www)
+`dist/` não vai pro Git. O wrangler.jsonc publica `dist/` e roda o build sozinho antes de
+`wrangler deploy` e `wrangler dev`.
 
-Opção 2, CLI
+## Pages CMS (edição pelo cliente)
+1. Entrar em https://app.pagescms.org com a conta do GitHub que tem acesso ao repositório.
+2. Abrir o repositório e a branch main. Aparece "Conteúdo do site" no menu.
+3. Ao salvar, o Pages CMS faz um commit, e o deploy automático da Cloudflare (opção 3 abaixo) publica.
+Logos sobem pra `public/img/clientes/`, fotos pra `public/img/`.
+Se faltar um campo obrigatório no site.json, o build para com uma mensagem explicando o que falta,
+e o site no ar continua o anterior.
+
+## Publicar
+Opção 1, CLI
   npx wrangler login
-  npx wrangler pages deploy ./public --project-name=segben
+  npx wrangler deploy        (roda o build e publica)
 
-Opção 3, deploy automático pelo GitHub
-  Pages > Connect to Git
-  Build command: (vazio)   Deploy command: npx wrangler deploy (padrão do Workers Builds)
+Opção 2, testar local
+  npx wrangler dev           (roda o build e abre em http://localhost:8787)
 
-Pendências no HTML: [e-mail de contato], [@instagram], CNPJ, endereço, [+X] na página de clientes.
+Opção 3, deploy automático pelo GitHub (necessário pro Pages CMS)
+  Workers & Pages > projeto > Settings > Build > Connect to Git
+  Build command: (vazio)   Deploy command: npx wrangler deploy
+  O build já está no wrangler.jsonc, não precisa colocar nada no painel.
 
-Logos dos clientes: PNG com fundo transparente em public/img/clientes/ com os nomes igel.png, camil.png, geo.png, real.png, caseratto.png, dolcci.png, zello.png. Sem o arquivo, o site mostra o nome da empresa.
+Arrastar a pasta pelo painel não funciona mais direto: rode `node tools/build.mjs` antes e arraste a pasta `dist`.
 
-## Páginas de curso
-Geradas por `python3 tools/cursos.py public` a partir da lista CURSOS no próprio script
-(o cabeçalho e o rodapé são copiados da home). Edite lá e rode de novo.
-Também gera cursos.html, 404.html, sitemap.xml e robots.txt.
+## Outras coisas
 A imagem de compartilhamento sai de `python3 tools/og.py`.
+Os textos fixos (serviços, brigada, perguntas frequentes, setores) continuam no HTML de `src/`
+e, no caso do FAQ da página de cursos, em `tools/build.mjs`.
 
 ## Rollback
 A versão anterior ao pacote de melhorias está na branch `backup-v1-antes-melhorias`.
